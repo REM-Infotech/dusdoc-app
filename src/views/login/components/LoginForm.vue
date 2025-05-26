@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import InputView from "./styled/InputView.vue";
+
+function handleSubmit(event: Event) {
+  event.preventDefault();
+  // Handle form submission logic here
+  console.log("Form submitted");
+}
 </script>
 
 <template>
-  <form class="mt-4">
+  <form class="mt-4" @submit="handleSubmit">
     <InputView type="text" label="Seu email" value="" :icon="faEnvelope" />
     <InputView type="password" label="Sua senha" value="" />
     <a class="mt-4 mb-4 text-decoration-none text-primary fw-bold" href="#">Esqueceu sua senha?</a>
