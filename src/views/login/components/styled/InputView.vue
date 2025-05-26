@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faAt, faEye } from "@fortawesome/free-solid-svg-icons";
+import { computed, ref } from "vue";
+
 const props = defineProps({
   type: {
     type: String,
@@ -25,7 +27,13 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["value"]);
+const showPassword = ref(false);
+
+const computedType = computed(() => {
+  return props.type === "password" && !showPassword.value ? "password" : "text";
+});
+
+const emit = defineEmits(["value", "type"]);
 </script>
 <template>
   <div class="input-group mb-4">
@@ -34,17 +42,17 @@ const emit = defineEmits(["value"]);
     </span>
     <div class="form-floating">
       <input
-        :type="props.type"
+        :type="computedType"
         class="form-control"
         id="floatingInput"
         :placeholder="props.placeholder"
         :value="props.value"
-        @input="emit('value', ($event.target as HTMLInputElement)?.value ?? '')"
+        @input="emit('value', ($event.target as HTMLInputElement)?.value)"
       />
       <label for="floatingInput">{{ props.label }}</label>
     </div>
     <span class="input-group-text" id="basic-addon1" v-if="props.type === 'password'">
-      <button type="button">
+      <button type="button" @click="showPassword = !showPassword">
         <FontAwesomeIcon :icon="faEye" />
       </button>
     </span>
