@@ -10,7 +10,7 @@ import InputView from "./styled/InputView.vue";
     <a class="mt-4 mb-4 text-decoration-none text-primary fw-bold" href="#">Esqueceu sua senha?</a>
     <div class="d-grid">
       <button type="submit" class="mt-4 p-2 btn btn-primary">
-        <span class="fw-bold">Submit</span>
+        <span class="fw-bold">Entrar</span>
       </button>
     </div>
   </form>
