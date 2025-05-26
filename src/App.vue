@@ -1,5 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import "@/assets/scripts/color-modes.js";
+</script>
 
 <template>
-  <div>teste</div>
+  <RouterView />
 </template>
