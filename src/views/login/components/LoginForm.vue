@@ -5,7 +5,7 @@ import InputView from "./styled/InputView.vue";
 function handleSubmit(event: Event) {
   event.preventDefault();
   // Handle form submission logic here
-  console.log("Form submitted");
+  alert("Form submitted!");
 }
 </script>
 
