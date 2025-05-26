@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import FooterView from "./components/FooterView.vue";
 import HeaderView from "./components/HeaderView.vue";
 import MainView from "./components/MainView.vue";
 </script>
@@ -6,4 +7,5 @@ import MainView from "./components/MainView.vue";
 <template>
   <HeaderView />
   <MainView />
+  <FooterView />
 </template>
