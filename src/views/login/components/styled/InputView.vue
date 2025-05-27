@@ -47,7 +47,7 @@ const emit = defineEmits(["value", "type"]);
         id="floatingInput"
         :placeholder="props.placeholder"
         :value="props.value"
-        @input="emit('value', ($event.target as HTMLInputElement)?.value)"
+        @input="emit('value', ($event.target as HTMLInputElement)?.value || props.value)"
       />
       <label for="floatingInput">{{ props.label }}</label>
     </div>
