@@ -1,3 +1,3 @@
 <template>
-  <span>teste</span>
+  <span>content</span>
 </template>
