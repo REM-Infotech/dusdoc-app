@@ -2,6 +2,9 @@
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import InputView from "./styled/InputView.vue";
 import { reactive } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const form = reactive({
   email: "",
@@ -12,6 +15,7 @@ function handleSubmit(event: Event) {
   event.preventDefault();
   // Handle form submission logic here
   alert("Form submitted!");
+  router.push({ name: "home" });
 }
 </script>
 
