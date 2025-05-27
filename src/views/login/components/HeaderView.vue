@@ -7,7 +7,7 @@ import LogoExample from "./icons/LogoExample.vue";
     <div class="container mt-5">
       <div class="d-grid justify-content-center align-items-center">
         <div class="d-flex justify-content-center">
-          <div class="shadow-lg p-4 mb-2 mt-auto bg-body-tertiary rounded rounded-circle">
+          <div class="shadow-lg p-2 mb-2 mt-auto bg-body-tertiary rounded rounded-circle">
             <LogoExample />
           </div>
         </div>

@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="container mt-auto">
+    <div class="container mt-5">
       <div class="d-grid justify-content-center allign-items-center mt-5">
         <div class="d-flex justify-content-center">
           <span class="text-body-tertiary text-center fw-semibold">
