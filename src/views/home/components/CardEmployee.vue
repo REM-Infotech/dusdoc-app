@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card shadow shadow-4">
     <div class="d-flex justify-content-center align-items-center">
       <img
         class="rounded rounded-3 ms-4"
