@@ -9,14 +9,14 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 </script>
 
 <template>
-  <div class="mt-5" id="files">
+  <div class="mt-2" id="files">
     <div class="d-flex gap-0 justify-content-between align-items-center">
-      <span class="ms-1 fs-5 fw-semibold">Documentos recentes</span>
-      <a class="text-primary fw-semibold link-offset-3" href="#">Ver todos</a>
+      <span class="ms-1 fw-semibold" style="font-size: 1.2em">Documentos recentes</span>
+      <a class="fw-semibold link-offset-3" href="#">Ver todos</a>
     </div>
     <div class="card mt-2 shadow shadow-4">
       <ul class="list-group">
-        <li class="list-group-item">
+        <li class="list-group-item p-2">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-2 bg-primary rounded">
@@ -34,7 +34,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
             </a>
           </div>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item p-2">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-1 bg-success rounded">
@@ -52,7 +52,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
             </a>
           </div>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item p-2">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-2 bg-warning rounded" style="">

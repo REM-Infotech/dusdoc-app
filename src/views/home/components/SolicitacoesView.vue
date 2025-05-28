@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 </script>
 
 <template>
-  <div class="mt-5" id="files">
+  <div id="files">
     <div class="d-flex gap-0 justify-content-between align-items-center">
       <span class="ms-1 fs-5 fw-semibold">Documentos recentes</span>
       <a class="text-primary fw-semibold link-offset-3" href="#">Ver todos</a>
