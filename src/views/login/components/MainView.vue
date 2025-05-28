@@ -6,11 +6,11 @@ import LoginForm from "./LoginForm.vue";
 
 <template>
   <main>
-    <div class="container mt-4">
+    <div class="container">
       <div
         class="shadow-lg p-4 mb-2 mt-auto bg-body-tertiary rounded d-grid justify-content-center align-items-center"
       >
-        <div class="d-flex justify-content-center mt-2">
+        <div class="d-flex justify-content-center">
           <IconExample />
         </div>
         <div class="card-title mt-3 d-grid justify-content-center align-items-center">

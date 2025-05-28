@@ -6,7 +6,7 @@ import SolicitacoesView from "./components/SolicitacoesView.vue";
 </script>
 
 <template>
-  <div class="p-2 overflow-y-auto" style="height: 87.7dvh">
+  <div class="overflow-y-auto">
     <div class="d-grid gap-2 justify-content-center align-items-center">
       <CardEmployee />
       <ListDocsView />

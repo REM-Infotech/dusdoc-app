@@ -5,7 +5,9 @@ import MainView from "./components/MainView.vue";
 </script>
 
 <template>
-  <HeaderView />
-  <MainView />
-  <FooterView />
+  <div class="d-grid gap-4 p-3">
+    <HeaderView />
+    <MainView />
+    <FooterView />
+  </div>
 </template>
