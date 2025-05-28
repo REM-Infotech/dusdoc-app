@@ -29,9 +29,9 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
                 </span>
               </div>
             </div>
-            <div class="bg-opacity-25 rounded">
+            <a href="#" class="bg-opacity-25 rounded">
               <FontAwesomeIcon :icon="faDownload" size="2x" color="blue" />
-            </div>
+            </a>
           </div>
         </li>
         <li class="list-group-item">
@@ -47,9 +47,9 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
                 </span>
               </div>
             </div>
-            <div class="bg-opacity-25 rounded">
+            <a href="#" class="bg-opacity-25 rounded">
               <FontAwesomeIcon :icon="faDownload" size="2x" color="blue" />
-            </div>
+            </a>
           </div>
         </li>
         <li class="list-group-item">
@@ -65,9 +65,9 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
                 </span>
               </div>
             </div>
-            <div class="bg-opacity-25 rounded">
+            <a href="#" class="bg-opacity-25 rounded">
               <FontAwesomeIcon :icon="faDownload" size="2x" color="blue" />
-            </div>
+            </a>
           </div>
         </li>
       </ul>
