@@ -3,7 +3,7 @@ import LogoExample from "./icons/LogoExample.vue";
 </script>
 
 <template>
-  <div class="d-flex flex-column justify-content-center align-items-center mt-4 mb-auto">
+  <div class="d-flex flex-column justify-content-center align-items-center mt-5">
     <div class="shadow-lg p-2 mb-2 mt-auto bg-body-tertiary rounded rounded-circle">
       <LogoExample />
     </div>

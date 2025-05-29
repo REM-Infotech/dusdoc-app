@@ -37,18 +37,21 @@ const emit = defineEmits(["value", "type"]);
 </script>
 <template>
   <div class="input-group">
-    <span class="input-group-text" id="basic-addon1" v-if="props.type !== 'password'">
+    <span class="input-group-text" v-if="props.type !== 'password'">
       <FontAwesomeIcon :icon="props.icon" />
     </span>
-    <input
-      :type="computedType"
-      class="form-control"
-      id="floatingInput"
-      :placeholder="props.label"
-      :value="props.value"
-      @input="emit('value', ($event.target as HTMLInputElement)?.value || props.value)"
-    />
-    <span class="input-group-text" id="basic-addon1" v-if="props.type === 'password'">
+    <div class="form-floating">
+      <input
+        :type="computedType"
+        class="form-control"
+        id="floatingInput"
+        :placeholder="props.placeholder"
+        :value="props.value"
+        @input="emit('value', ($event.target as HTMLInputElement)?.value || props.value)"
+      />
+      <label for="floatingInput">{{ props.label }}</label>
+    </div>
+    <span class="input-group-text" v-if="props.type === 'password'">
       <button type="button" @click="showPassword = !showPassword">
         <FontAwesomeIcon :icon="faEye" />
       </button>

@@ -22,25 +22,29 @@ function handleSubmit(event: Event) {
 </script>
 
 <template>
-  <div class="shadow shadow-4 me-3 ms-3 p-3 rounded rounded-4">
-    <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
-      <IconExample />
-      <span class="fw-bold text-center"> Bem-vindo(a)! </span>
-      <span class="text-body-tertiary text-center fw-semibold text-opacity-50">
-        Acesse sua conta para visualizar ou enviar documentos
-      </span>
+  <div class="d-flex flex-column gap-3 shadow shadow-4 me-3 ms-3 p-3 rounded rounded-4">
+    <div class="d-flex gap-4 justify-content-center align-items-center">
+      <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
+        <IconExample />
+        <span class="fw-bold text-center" style="font-size: 0.9em"> Bem-vindo(a)! </span>
+        <span class="text-body-tertiary text-center fw-semibold text-opacity-50">
+          Acesse sua conta para visualizar ou enviar documentos
+        </span>
+      </div>
     </div>
-    <form @submit="handleSubmit" class="d-flex flex-column gap-3">
-      <InputView type="text" label="Seu email" :value="form.email" :icon="faEnvelope" />
-      <InputView type="password" label="Sua senha" :value="form.password" />
+    <form @submit="handleSubmit" class="d-flex flex-column gap-4">
+      <div class="d-flex gap-2 flex-column">
+        <InputView type="text" label="Email" :value="form.email" :icon="faEnvelope" />
+        <InputView type="password" label="Senha" :value="form.password" />
+      </div>
       <a class="text-decoration-none text-primary fw-semibold" href="#">Esqueceu sua senha?</a>
-      <div class="d-flex flex-column">
+      <div class="d-grid">
         <button type="submit" class="btn btn-primary">
           <span class="fw-bold">Entrar</span>
         </button>
       </div>
     </form>
-    <div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="d-flex flex-column justify-content-center align-items-center grap-5">
       <span class="text-center text-body-tertiary fw-semibold"> Ainda não possui uma conta? </span>
       <a class="text-center text-decoration-none" href="#">
         <span class="fw-bolder text-primary"> Solicite ao RH </span>

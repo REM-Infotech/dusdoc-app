@@ -24,10 +24,8 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
                 <FontAwesomeIcon :icon="faFileInvoice" size="lg" color="white" />
               </div>
               <div class="d-grid gap-0 ms-2">
-                <span class="fw-semibold" style="font-size: 0.9rem">Contracheque Maio/2025</span>
-                <span class="text-secondary fw-semibold" style="font-size: 0.8rem">
-                  Enviado em 21/05/2024
-                </span>
+                <span class="fw-semibold">Contracheque Maio/2025</span>
+                <span class="text-secondary fw-semibold"> Enviado em 21/05/2024 </span>
               </div>
             </div>
             <a href="#" class="bg-opacity-25 rounded">
@@ -42,10 +40,8 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
                 <FontAwesomeIcon :icon="faIdCard" size="lg" color="white" />
               </div>
               <div class="d-grid gap-0 ms-2">
-                <span class="fw-semibold" style="font-size: 0.9rem">Carteira Identificação</span>
-                <span class="text-secondary fw-semibold" style="font-size: 0.8rem">
-                  Atualizado em 21/05/2024
-                </span>
+                <span class="fw-semibold">Carteira Identificação</span>
+                <span class="text-secondary fw-semibold"> Atualizado em 21/05/2024 </span>
               </div>
             </div>
             <a href="#" class="bg-opacity-25 rounded">
@@ -60,10 +56,8 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
                 <FontAwesomeIcon :icon="faFileContract" size="lg" color="white" />
               </div>
               <div class="d-grid gap-0 ms-2">
-                <span class="fw-semibold" style="font-size: 0.9rem">Contrato de Experiência</span>
-                <span class="text-secondary fw-semibold" style="font-size: 0.8rem">
-                  Atualizado em 21/05/2024
-                </span>
+                <span class="fw-semibold">Contrato de Experiência</span>
+                <span class="text-secondary fw-semibold"> Atualizado em 21/05/2024 </span>
               </div>
             </div>
             <a href="#" class="bg-opacity-25 rounded">
