@@ -8750,6 +8750,10 @@ body {
   height: 100dvh;
 }
 
+.login-card {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
 body {
   transition: background-color 0.4s ease, color 0.4s ease;
   overflow-y: hidden;
@@ -8761,18 +8765,24 @@ body {
 }
 
 [data-bs-theme=dark] body {
-  background-color: #0d5054;
+  background-color: #552d76;
   color: #fff;
+}
+[data-bs-theme=dark] .login-card {
+  background-color: #212529;
 }
 [data-bs-theme=dark] .app-navbar {
   background-color: #3e185d;
 }
 
 [data-bs-theme=light] body {
-  background-color: #00999f;
+  background-color: #9150cd;
 }
 [data-bs-theme=light] .app-navbar {
   background-color: #9150cd;
+}
+[data-bs-theme=light] .login-card {
+  background-color: white;
 }
 
 [data-bs-theme=light] .btn-purple {

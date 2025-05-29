@@ -26,6 +26,12 @@ body {
   height: 100dvh;
 }
 
+.login-card {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
 body {
   transition:
     background-color 0.4s ease,
@@ -43,8 +49,12 @@ body {
 
 [data-bs-theme="dark"] {
   body {
-    background-color: $blue-chill-900;
+    background-color: $scarlet-gum-900;
     color: #fff;
+  }
+
+  .login-card {
+    background-color: $dark;
   }
 
   .app-navbar {
@@ -53,11 +63,15 @@ body {
 }
 [data-bs-theme="light"] {
   body {
-    background-color: $blue-chill-600;
+    background-color: $scarlet-gum-600;
   }
 
   .app-navbar {
     background-color: $scarlet-gum-600;
+  }
+
+  .login-card {
+    background-color: white;
   }
 }
 

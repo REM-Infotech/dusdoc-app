@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IconExample from "./components/icons/IconExample.vue";
-import "@/assets/scss/main.css";
+import "@/assets/scss/main.scss";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import InputView from "./components/styled/InputView.vue";
 import { reactive } from "vue";
@@ -22,7 +22,7 @@ function handleSubmit(event: Event) {
 </script>
 
 <template>
-  <div class="d-flex flex-column gap-3 shadow-lg me-3 ms-3 p-3 rounded rounded-4">
+  <div class="login-card d-flex flex-column gap-3 shadow-lg me-3 ms-3 p-3 rounded rounded-4">
     <div class="d-flex gap-4 justify-content-center align-items-center">
       <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
         <IconExample />

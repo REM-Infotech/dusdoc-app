@@ -15,7 +15,7 @@ import { StyledDiv } from "@/components/styled";
       <span class="ms-1 fw-semibold">Documentos recentes</span>
       <a class="fw-semibold link-offset-3" href="#">Ver todos</a>
     </div>
-    <div class="card mt-2 shadow-lg">
+    <div class="card mt-2">
       <ul class="list-group">
         <li class="list-group-item p-2">
           <div class="d-flex justify-content-between align-items-center">

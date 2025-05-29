@@ -5,7 +5,7 @@ import { StyledDiv } from "@/components/styled";
 <template>
   <StyledDiv
     id="carouselExampleSlidesOnly"
-    class="carousel mt-3 shadow-lg rounded rounded-4"
+    class="carousel rounded rounded-4"
     data-bs-ride="carousel"
   >
     <div class="carousel-inner bg-primary">
