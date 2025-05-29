@@ -20,17 +20,17 @@ function handleSubmit(event: Event) {
 </script>
 
 <template>
-  <form class="mt-4" @submit="handleSubmit">
+  <form @submit="handleSubmit" class="d-flex flex-column gap-2">
     <InputView type="text" label="Seu email" :value="form.email" :icon="faEnvelope" />
     <InputView type="password" label="Sua senha" :value="form.password" />
-    <a class="mt-4 mb-4 text-decoration-none text-primary fw-bold" href="#">Esqueceu sua senha?</a>
+    <a class="text-decoration-none text-primary fw-bold" href="#">Esqueceu sua senha?</a>
     <div class="d-grid">
-      <button type="submit" class="mt-4 p-2 btn btn-primary">
+      <button type="submit" class="p-2 btn btn-primary">
         <span class="fw-bold">Entrar</span>
       </button>
     </div>
   </form>
-  <div class="d-grid justify-content-center align-items-center mt-4">
+  <div class="d-flex flex-column justify-content-center align-items-center">
     <span class="text-center text-body-tertiary fw-semibold"> Ainda não possui uma conta? </span>
     <a class="text-center text-decoration-none" href="#">
       <span class="fw-bolder text-primary"> Solicite ao RH </span>

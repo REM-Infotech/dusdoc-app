@@ -4,7 +4,7 @@ import LogoExample from "./icons/LogoExample.vue";
 
 <template>
   <header>
-    <div class="container mt-5">
+    <div class="container">
       <div class="d-grid justify-content-center align-items-center">
         <div class="d-flex justify-content-center">
           <div class="shadow-lg p-2 mb-2 mt-auto bg-body-tertiary rounded rounded-circle">
