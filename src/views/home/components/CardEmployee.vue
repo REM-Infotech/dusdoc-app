@@ -3,7 +3,7 @@ import { StyledDiv } from "@/components/styled";
 </script>
 
 <template>
-  <StyledDiv class="card py-3 shadow shadow-4 d-flex justify-content-center">
+  <StyledDiv class="card py-3 shadow-lg d-flex justify-content-center">
     <div class="d-inline-flex justify-content-start">
       <img
         class="rounded rounded-3 ms-3 mt-2 ms-2"
@@ -14,7 +14,7 @@ import { StyledDiv } from "@/components/styled";
       />
       <div class="d-grid ms-4">
         <span class="fw-bold">André Santos</span>
-        <div class="d-flex gap-2 text-body-secondary fw-semibold mb-2" style="font-size: 13px">
+        <div class="d-flex gap-2 text-body-secondary fw-semibold mb-2">
           <span>ID: 12345</span> •
           <span>Analista de TI</span>
         </div>

@@ -22,14 +22,10 @@ function handleSubmit(event: Event) {
 </script>
 
 <template>
-  <div class="d-flex flex-column gap-3 shadow shadow-4 me-3 ms-3 p-3 rounded rounded-4">
+  <div class="d-flex flex-column gap-3 shadow-lg me-3 ms-3 p-3 rounded rounded-4">
     <div class="d-flex gap-4 justify-content-center align-items-center">
       <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
         <IconExample />
-        <span class="fw-bold text-center" style="font-size: 0.9em"> Bem-vindo(a)! </span>
-        <span class="text-body-tertiary text-center fw-semibold text-opacity-50">
-          Acesse sua conta para visualizar ou enviar documentos
-        </span>
       </div>
     </div>
     <form @submit="handleSubmit" class="d-flex flex-column gap-4">

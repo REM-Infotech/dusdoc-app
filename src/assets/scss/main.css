@@ -8738,7 +8738,11 @@ progress {
 }
 
 * {
-  font-size: 0.9rem;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
 html,
