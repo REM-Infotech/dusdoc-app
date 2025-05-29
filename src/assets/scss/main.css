@@ -8753,16 +8753,12 @@ body {
 }
 
 [data-bs-theme=dark] body {
-  background-color: #057a80;
   color: #fff;
 }
 [data-bs-theme=dark] .app-navbar {
   background-color: #3e185d;
 }
 
-[data-bs-theme=light] body {
-  background-color: #1de4e4;
-}
 [data-bs-theme=light] .app-navbar {
   background-color: #9150cd;
 }
