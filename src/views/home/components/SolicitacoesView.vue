@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { StyledDiv } from "@/components/styled";
 import {
   faFileInvoice,
   faDownload,
@@ -9,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 </script>
 
 <template>
-  <div id="files">
+  <StyledDiv id="files">
     <div class="d-flex gap-0 justify-content-between align-items-center">
       <span class="ms-1 fs-5 fw-semibold">Documentos recentes</span>
       <a class="text-primary fw-semibold link-offset-3" href="#">Ver todos</a>
@@ -72,5 +73,5 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
         </li>
       </ul>
     </div>
-  </div>
+  </StyledDiv>
 </template>

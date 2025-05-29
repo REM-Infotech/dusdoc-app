@@ -7,7 +7,7 @@ import HeaderView from "./components/HeaderView.vue";
 <template>
   <RouterView v-slot="{ Component, route }">
     <Transition name="fade">
-      <div class="d-flex flex-column gap-2 h-100" :key="route.name">
+      <div class="d-flex flex-column h-100" :key="route.name">
         <HeaderView class="mb-auto" v-if="route.name !== 'login'" />
         <component :is="Component" />
         <FooterView class="mt-auto" v-if="route.name !== 'login'" />

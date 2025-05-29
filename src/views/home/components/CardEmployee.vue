@@ -1,8 +1,9 @@
+<script setup lang="ts">
+import { StyledDiv } from "@/components/styled";
+</script>
+
 <template>
-  <div
-    class="card shadow shadow-4 d-flex justify-content-center"
-    style="width: 358px; height: 104px"
-  >
+  <StyledDiv class="card py-3 shadow shadow-4 d-flex justify-content-center">
     <div class="d-inline-flex justify-content-start">
       <img
         class="rounded rounded-3 ms-3 mt-2 ms-2"
@@ -53,5 +54,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </StyledDiv>
 </template>

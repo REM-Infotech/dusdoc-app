@@ -6,10 +6,11 @@ import {
   faFileContract,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { StyledDiv } from "@/components/styled";
 </script>
 
 <template>
-  <div class="mt-2" id="files">
+  <StyledDiv class="mt-2" id="files">
     <div class="d-flex gap-0 justify-content-between align-items-center">
       <span class="ms-1 fw-semibold" style="font-size: 1.2em">Documentos recentes</span>
       <a class="fw-semibold link-offset-3" href="#">Ver todos</a>
@@ -72,5 +73,5 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
         </li>
       </ul>
     </div>
-  </div>
+  </StyledDiv>
 </template>
