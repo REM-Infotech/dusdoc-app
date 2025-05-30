@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import IconExample from "./icons/IconExample.vue";
+</script>
+
 <template>
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary rounded-bottom-4 shadow-lg">
@@ -40,15 +44,6 @@
               <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
