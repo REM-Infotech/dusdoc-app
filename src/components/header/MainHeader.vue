@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from "vue-router";
 import IconExample from "../icons/IconExample.vue";
 </script>
 
@@ -18,7 +19,9 @@ import IconExample from "../icons/IconExample.vue";
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <RouterLink class="nav-link active" aria-current="page" :to="{ name: 'logout' }"
+                >Sair</RouterLink
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
@@ -37,12 +40,12 @@ import IconExample from "../icons/IconExample.vue";
                 <li><a class="dropdown-item" href="#">Action</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="/logout">Sair</a></li>
               </ul>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>

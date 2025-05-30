@@ -25,6 +25,13 @@ const router = createRouter({
       name: "documents",
       component: () => import("@/views/documents/DocumentsView.vue"),
     },
+    {
+      path: "/logout",
+      name: "logout",
+      redirect: {
+        name: "login",
+      },
+    },
   ],
 });
 
