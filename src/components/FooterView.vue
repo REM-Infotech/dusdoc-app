@@ -1,29 +1,14 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faHome, faFolderOpen, faBell, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useRoute } from "vue-router";
+import MainFooter from "./footer/MainFooter.vue";
+import LoginFooter from "./footer/LoginFooter.vue";
+
+const route = useRoute();
 </script>
 
 <template>
-  <footer class="bg-body-tertiary rounded-top-4 shadow-lg" style="zoom: 75%">
-    <div
-      class="container text-center ps-5 pe-5 py-3 d-flex justify-content-between align-items-start"
-    >
-      <a class="d-flex flex-column gap-1 text-decoration-none link-body-emphasis" href="#">
-        <FontAwesomeIcon :icon="faHome" size="2x" />
-        Home
-      </a>
-      <a class="d-flex flex-column gap-1 text-decoration-none link-body-emphasis" href="#">
-        <FontAwesomeIcon :icon="faFolderOpen" size="2x" />
-        Documentos
-      </a>
-      <a class="d-flex flex-column gap-1 text-decoration-none link-body-emphasis" href="#">
-        <FontAwesomeIcon :icon="faBell" size="2x" />
-        Avisos
-      </a>
-      <a class="d-flex flex-column gap-1 text-decoration-none link-body-emphasis" href="#">
-        <FontAwesomeIcon :icon="faUser" size="2x" />
-        Perfil
-      </a>
-    </div>
-  </footer>
+  <Transition>
+    <MainFooter v-if="route.name !== 'login'" />
+    <LoginFooter v-else />
+  </Transition>
 </template>

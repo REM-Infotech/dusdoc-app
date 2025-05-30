@@ -2,20 +2,18 @@
 import "@/assets/scripts/color-modes.js";
 import FooterView from "./components/FooterView.vue";
 import HeaderView from "./components/HeaderView.vue";
-import HeaderLoginView from "./components/HeaderLoginView.vue";
-import FooterLoginView from "./components/FooterLoginView.vue";
 </script>
 
 <template>
-  <RouterView v-slot="{ Component, route }">
-    <Transition name="fade">
-      <div class="d-flex flex-column" :key="route.name" style="height: 100%">
-        <HeaderView v-if="route.name !== 'login'" />
-        <HeaderLoginView v-else />
-        <component :is="Component" />
-        <FooterView class="mt-auto" v-if="route.name !== 'login'" />
-        <FooterLoginView v-else />
-      </div>
-    </Transition>
+  <RouterView v-slot="{ Component, route }" class="d-flex flex-column h-100">
+    <div class="d-flex flex-column h-100">
+      <HeaderView class="mb-auto" />
+      <Transition name="fade" mode="out-in">
+        <div :key="route.name">
+          <component :is="Component" />
+        </div>
+      </Transition>
+      <FooterView class="mt-auto" />
+    </div>
   </RouterView>
 </template>
