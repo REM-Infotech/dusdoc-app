@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import CardEmployee from "../home/components/CardEmployee.vue";
-import CardSolicitacao from "../home/components/CardSolicitacao.vue";
-import ListDocsView from "../home/components/ListDocsView.vue";
+import CardEmployee from "./components/CardEmployee.vue";
+import CardSolicitacao from "./components/CardSolicitacao.vue";
+import ListDocsView from "./components/ListDocsView.vue";
+import SolicitacoesView from "./components/SolicitacoesView.vue";
 </script>
 
 <template>
@@ -9,5 +10,6 @@ import ListDocsView from "../home/components/ListDocsView.vue";
     <CardEmployee class="w-100 ps-3 pe-3" />
     <ListDocsView class="w-100 ps-3 pe-3" />
     <CardSolicitacao class="w-100 ps-3 pe-3" />
+    <SolicitacoesView class="w-100 ps-3 pe-3" />
   </div>
 </template>

@@ -7,7 +7,7 @@ const route = useRoute();
 </script>
 
 <template>
-  <Transition>
+  <Transition name="fade" mode="out-in">
     <MainHeader v-if="route.name !== 'login'" />
     <LoginHeader v-else />
   </Transition>

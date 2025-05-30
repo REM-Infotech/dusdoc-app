@@ -23,7 +23,7 @@ function handleSubmit(event: Event) {
 
 <template>
   <div
-    class="mt-auto mb-auto login-card d-flex flex-column gap-3 shadow-lg me-3 ms-3 p-3 rounded rounded-4"
+    class="login-card d-flex flex-column gap-3 shadow-lg me-3 ms-3 p-3 rounded rounded-4 mb-auto mt-auto"
   >
     <div class="d-flex gap-4 justify-content-center align-items-center">
       <div class="d-flex flex-column gap-2 justify-content-center align-items-center">

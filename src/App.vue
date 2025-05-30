@@ -17,9 +17,7 @@ watch(route, (newroute) => {
     <div class="d-flex flex-column h-100 justify-content-center">
       <HeaderView />
       <Transition name="fade" mode="out-in">
-        <div :key="route.name" class="overflow-y-auto">
-          <component :is="Component" />
-        </div>
+        <component :is="Component" :key="route.name" />
       </Transition>
       <FooterView />
     </div>
