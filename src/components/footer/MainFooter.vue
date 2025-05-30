@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faHome, faFolderOpen, faBell, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faFolderOpen, faUser } from "@fortawesome/free-regular-svg-icons";
 import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <footer class="bg-body-tertiary rounded-top-4 shadow-lg mt-auto" style="zoom: 75%">
+  <footer class="rounded-top-4 shadow-lg mt-auto" style="zoom: 75%">
     <div
       class="container text-center ps-5 pe-5 py-3 d-flex justify-content-between align-items-start"
     >
@@ -14,7 +14,7 @@ import { RouterLink } from "vue-router";
         class="d-flex flex-column gap-2 text-decoration-none link-body-emphasis"
         href="#"
       >
-        <FontAwesomeIcon :icon="faHome" size="2x" />
+        <i class="fa-regular fa-house"></i>
         Home
       </RouterLink>
       <RouterLink

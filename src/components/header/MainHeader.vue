@@ -3,8 +3,8 @@ import IconExample from "../icons/IconExample.vue";
 </script>
 
 <template>
-  <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary rounded-bottom-4 shadow-lg">
+  <header class="rounded-bottom-4 shadow-lg">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid justify-content-between">
         <a class="navbar-brand" href="#">DusDoc</a>
         <IconExample
