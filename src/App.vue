@@ -5,11 +5,11 @@ import HeaderView from "./components/HeaderView.vue";
 </script>
 
 <template>
-  <RouterView v-slot="{ Component, route }" class="d-flex flex-column h-100">
+  <RouterView v-slot="{ Component, route }">
     <div class="d-flex flex-column h-100">
       <HeaderView class="mb-auto" />
       <Transition name="fade" mode="out-in">
-        <div :key="route.name">
+        <div :key="route.name" class="overflow-y-auto">
           <component :is="Component" />
         </div>
       </Transition>

@@ -21,7 +21,7 @@ const arquivos = ref(false);
       <a class="fw-semibold link-offset-3" href="#" @click="arquivos = !arquivos">Ver todos</a>
     </div>
     <div class="card mt-2">
-      <TransitionGroup class="list-group" name="list" tag="ul">
+      <TransitionGroup class="list-group" name="list" tag="ul" mode="out-in">
         <li class="list-group-item p-2" v-if="arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
