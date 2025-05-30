@@ -16,7 +16,7 @@ const arquivos = ref(true);
   <StyledDiv class="mt-2" id="files">
     <div class="d-flex gap-0 justify-content-between align-items-center">
       <span class="ms-1 fw-semibold">Documentos recentes</span>
-      <a class="fw-semibold link-offset-3" href="#">Ver todos</a>
+      <a class="fw-semibold link-offset-3" href="#" @click="arquivos = !arquivos">Ver todos</a>
     </div>
     <div class="card mt-2">
       <TransitionGroup class="list-group" name="list" tag="ul">

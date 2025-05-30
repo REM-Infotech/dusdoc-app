@@ -11,14 +11,14 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { StyledDiv } from "@/components/styled";
 import { ref } from "vue";
 
-const arquivos = ref(true);
+const arquivos = ref(false);
 </script>
 
 <template>
   <StyledDiv class="mt-2" id="files">
     <div class="d-flex gap-0 justify-content-between align-items-center">
       <span class="ms-1 fw-semibold">Documentos Solicitados</span>
-      <a class="fw-semibold link-offset-3" href="#">Ver todos</a>
+      <a class="fw-semibold link-offset-3" href="#" @click="arquivos = !arquivos">Ver todos</a>
     </div>
     <div class="card mt-2">
       <TransitionGroup class="list-group" name="list" tag="ul">
