@@ -10,7 +10,7 @@ import FooterLoginView from "./components/FooterLoginView.vue";
   <RouterView v-slot="{ Component, route }">
     <Transition name="fade">
       <div class="d-flex flex-column" :key="route.name" style="height: 100%">
-        <HeaderView class="mb-auto" v-if="route.name !== 'login'" />
+        <HeaderView v-if="route.name !== 'login'" />
         <HeaderLoginView v-else />
         <component :is="Component" />
         <FooterView class="mt-auto" v-if="route.name !== 'login'" />

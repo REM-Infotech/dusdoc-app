@@ -6,7 +6,7 @@ import SolicitacoesView from "./components/SolicitacoesView.vue";
 </script>
 
 <template>
-  <div class="d-flex flex-column gap-3 overflow-y-auto py-2 align-items-center">
+  <div class="d-flex flex-column gap-3 overflow-y-auto py-2 align-items-center overflow-x-hidden">
     <CardEmployee />
     <ListDocsView />
     <CardSolicitacao />
