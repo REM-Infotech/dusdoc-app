@@ -8765,7 +8765,7 @@ body {
 }
 
 [data-bs-theme=dark] body {
-  background-color: #552d76;
+  background-color: #002e33;
   color: #fff;
 }
 [data-bs-theme=dark] .login-card {
@@ -8776,7 +8776,7 @@ body {
 }
 
 [data-bs-theme=light] body {
-  background-color: #9150cd;
+  background-color: #00999f;
 }
 [data-bs-theme=light] .app-navbar {
   background-color: #9150cd;
