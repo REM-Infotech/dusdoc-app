@@ -5,7 +5,7 @@ import { RouterLink } from "vue-router";
 </script>
 
 <template>
-  <footer class="bg-body-tertiary rounded-top-4 shadow-lg" style="zoom: 75%">
+  <footer class="bg-body-tertiary rounded-top-4 shadow-lg mt-auto" style="zoom: 75%">
     <div
       class="container text-center ps-5 pe-5 py-3 d-flex justify-content-between align-items-start"
     >
