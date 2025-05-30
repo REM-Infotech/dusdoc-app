@@ -2,6 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faBell, faFolderOpen, faUser } from "@fortawesome/free-regular-svg-icons";
 import { RouterLink } from "vue-router";
+import { faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
 </script>
 
 <template>
@@ -14,7 +15,7 @@ import { RouterLink } from "vue-router";
         class="d-flex flex-column gap-2 text-decoration-none link-body-emphasis"
         href="#"
       >
-        <i class="fa-regular fa-house"></i>
+        <FontAwesomeIcon :icon="faHouseLaptop" size="2x" />
         Home
       </RouterLink>
       <RouterLink
