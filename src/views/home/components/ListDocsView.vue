@@ -7,6 +7,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { StyledDiv } from "@/components/styled";
+import { ref } from "vue";
+
+const arquivos = ref(true);
 </script>
 
 <template>
@@ -16,8 +19,8 @@ import { StyledDiv } from "@/components/styled";
       <a class="fw-semibold link-offset-3" href="#">Ver todos</a>
     </div>
     <div class="card mt-2">
-      <ul class="list-group">
-        <li class="list-group-item p-2">
+      <TransitionGroup class="list-group" name="list" tag="ul">
+        <li class="list-group-item p-2" v-if="!arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-2 bg-primary rounded">
@@ -33,7 +36,7 @@ import { StyledDiv } from "@/components/styled";
             </a>
           </div>
         </li>
-        <li class="list-group-item p-2">
+        <li class="list-group-item p-2" v-if="!arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-1 bg-success rounded">
@@ -49,7 +52,7 @@ import { StyledDiv } from "@/components/styled";
             </a>
           </div>
         </li>
-        <li class="list-group-item p-2">
+        <li class="list-group-item p-2" v-if="!arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-2 bg-warning rounded" style="">
@@ -65,7 +68,20 @@ import { StyledDiv } from "@/components/styled";
             </a>
           </div>
         </li>
-      </ul>
+        <li class="list-group-item p-2" v-else>Sem Arquivos</li>
+      </TransitionGroup>
     </div>
   </StyledDiv>
 </template>
+
+<style lang="css" scoped>
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+</style>

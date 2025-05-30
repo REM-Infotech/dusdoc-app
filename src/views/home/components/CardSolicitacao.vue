@@ -1,20 +1,36 @@
 <script setup lang="ts">
 import { StyledDiv } from "@/components/styled";
+import { ref } from "vue";
+
+const avisos = ref(true);
 </script>
 
 <template>
   <StyledDiv id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner bg-primary rounded rounded-4">
-      <div class="carousel-item active bg-blue">
-        <div class="card bg-primary" style="height: 200px">teste</div>
+    <Transition name="fade" mode="out-in">
+      <div v-if="!avisos" class="carousel-inner rounded rounded-4">
+        <div class="carousel-item active">
+          <div class="card bg-primary" style="height: 200px">teste</div>
+        </div>
+        <div class="carousel-item">
+          <div class="card bg-success" style="height: 200px"></div>
+        </div>
+        <div class="carousel-item">
+          <div class="card bg-warning" style="height: 200px"></div>
+        </div>
       </div>
-      <div class="carousel-item bg-blue">
-        <div class="card bg-success" style="height: 200px"></div>
+      <div v-else class="carousel-inner rounded rounded-4">
+        <div class="carousel-item active">
+          <div
+            class="card bg-secondary d-flex flex-column justify-content-center align-items-center"
+            style="height: 200px"
+          >
+            <span class="fs-4">Sem Avisos</span>
+          </div>
+        </div>
       </div>
-      <div class="carousel-item bg-blue">
-        <div class="card bg-warning" style="height: 200px"></div>
-      </div>
-    </div>
+    </Transition>
+
     <button
       class="carousel-control-prev"
       type="button"
