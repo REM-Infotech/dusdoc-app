@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { StyledDiv } from "@/components/styled";
 import { ref } from "vue";
 
-const arquivos = ref(true);
+const arquivos = ref(false);
 </script>
 
 <template>
@@ -24,9 +24,9 @@ const arquivos = ref(true);
         name="list"
         tag="ul"
         mode="out-in"
-        :style="{ 'height: 200px': !arquivos }"
+        :style="{ 'height: 200px': arquivos }"
       >
-        <li class="list-group-item p-2" v-if="!arquivos">
+        <li class="list-group-item p-2" v-if="arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-2 bg-primary rounded">
@@ -42,7 +42,7 @@ const arquivos = ref(true);
             </a>
           </div>
         </li>
-        <li class="list-group-item p-2" v-if="!arquivos">
+        <li class="list-group-item p-2" v-if="arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-1 bg-success rounded">
@@ -58,7 +58,7 @@ const arquivos = ref(true);
             </a>
           </div>
         </li>
-        <li class="list-group-item p-2" v-if="!arquivos">
+        <li class="list-group-item p-2" v-if="arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-2 bg-warning rounded" style="">

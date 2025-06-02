@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { StyledDiv } from "@/components/styled";
 import { ref } from "vue";
 
-const arquivos = ref(true);
+const arquivos = ref(false);
 </script>
 
 <template>
@@ -18,9 +18,15 @@ const arquivos = ref(true);
       <span class="ms-1 fw-semibold">Documentos recentes</span>
       <a class="fw-semibold link-offset-3" href="#" @click="arquivos = !arquivos">Ver todos</a>
     </div>
-    <div class="card mt-2">
-      <TransitionGroup class="list-group" name="list" tag="ul" mode="out-in">
-        <li class="list-group-item p-2" v-if="!arquivos">
+    <div class="card mt-2 overflow-x-hidden">
+      <TransitionGroup
+        class="list-group overflow-y-auto overflow-x-hidden"
+        name="list"
+        tag="ul"
+        mode="out-in"
+        :style="{ 'height: 200px': arquivos }"
+      >
+        <li class="list-group-item p-2" v-if="arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-2 bg-primary rounded">
@@ -36,7 +42,7 @@ const arquivos = ref(true);
             </a>
           </div>
         </li>
-        <li class="list-group-item p-2" v-if="!arquivos">
+        <li class="list-group-item p-2" v-if="arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-1 bg-success rounded">
@@ -52,7 +58,7 @@ const arquivos = ref(true);
             </a>
           </div>
         </li>
-        <li class="list-group-item p-2" v-if="!arquivos">
+        <li class="list-group-item p-2" v-if="arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
               <div class="p-2 bg-warning rounded" style="">
@@ -68,7 +74,6 @@ const arquivos = ref(true);
             </a>
           </div>
         </li>
-        <li class="list-group-item p-2" v-else>Sem Arquivos</li>
       </TransitionGroup>
     </div>
   </StyledDiv>
@@ -79,6 +84,7 @@ const arquivos = ref(true);
 .list-leave-active {
   transition: all 0.5s ease;
 }
+
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
