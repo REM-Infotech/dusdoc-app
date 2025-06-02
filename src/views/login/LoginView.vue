@@ -15,8 +15,7 @@ const form = reactive({
 
 function handleSubmit(event: Event) {
   event.preventDefault();
-  // Handle form submission logic here
-  alert("Form submitted!");
+
   router.push({ name: "home" });
 }
 </script>

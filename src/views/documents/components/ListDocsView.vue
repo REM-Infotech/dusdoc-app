@@ -41,8 +41,8 @@ const computedFiles = computed(() => {
         >
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
-              <div :class="file.class_icon" style="">
-                <FontAwesomeIcon :icon="file.icon" size="lg" color="white" />
+              <div :class="file.class_icon">
+                <FontAwesomeIcon :icon="file.icon" size="xl" color="white" />
               </div>
               <div class="d-grid gap-0 ms-2">
                 <span class="fw-semibold">{{ file.file_desc }}</span>
