@@ -9,4 +9,8 @@ const socket = io(import.meta.env.VITE_SOCKET_URL, {
   },
 });
 
+socket.on("connect", () => {
+  console.log("Socket connected:", socket.id);
+});
+
 export default socket;

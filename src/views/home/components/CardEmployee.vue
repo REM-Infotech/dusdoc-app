@@ -3,7 +3,6 @@ import IconExample from "@/components/icons/IconExample.vue";
 import StatusAtivo from "@/components/icons/StatusAtivo.vue";
 import { StyledDiv } from "@/components/styled";
 import { ref } from "vue";
-
 const ativo = ref(true);
 </script>
 
