@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import IconExample from "@/components/icons/IconExample.vue";
 import StatusAtivo from "@/components/icons/StatusAtivo.vue";
 import { StyledDiv } from "@/components/styled";
 import { ref } from "vue";
@@ -10,13 +11,14 @@ const ativo = ref(true);
   <StyledDiv>
     <div class="card justify-content-start">
       <div class="card-body d-flex gap-3">
-        <img
+        <!-- <img
           class="rounded rounded-3"
           src="@/assets/img/favicon.png"
           alt=""
           width="56px"
           height="56px"
-        />
+        /> -->
+        <IconExample width="56px" height="56px" />
         <div class="d-flex flex-column">
           <span class="fw-bold">André Santos</span>
           <div class="d-flex gap-2 text-body-secondary fw-semibold mb-2">
