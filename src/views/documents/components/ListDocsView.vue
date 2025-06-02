@@ -18,8 +18,8 @@ const arquivos = ref(true);
       <span class="ms-1 fw-semibold">Documentos recentes</span>
       <a class="fw-semibold link-offset-3" href="#" @click="arquivos = !arquivos">Ver todos</a>
     </div>
-    <div class="card mt-2">
-      <TransitionGroup class="list-group" name="list" tag="ul" mode="out-in">
+    <div class="card mt-2 overflow-x-hidden" >
+      <TransitionGroup class="list-group overflow-y-auto overflow-x-hidden" name="list" tag="ul" mode="out-in" style="height: 200px;">
         <li class="list-group-item p-2" v-if="!arquivos">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
@@ -68,7 +68,22 @@ const arquivos = ref(true);
             </a>
           </div>
         </li>
-        <li class="list-group-item p-2" v-else>Sem Arquivos</li>
+        <li class="list-group-item p-2" v-if="!arquivos">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-start align-items-center">
+              <div class="p-2 bg-warning rounded" style="">
+                <FontAwesomeIcon :icon="faFileContract" size="lg" color="white" />
+              </div>
+              <div class="d-grid gap-0 ms-2">
+                <span class="fw-semibold">Contrato de Experiência</span>
+                <span class="text-secondary fw-semibold"> Atualizado em 21/05/2024 </span>
+              </div>
+            </div>
+            <a href="#" class="bg-opacity-25 rounded">
+              <FontAwesomeIcon :icon="faDownload" size="2x" color="blue" />
+            </a>
+          </div>
+        </li>
       </TransitionGroup>
     </div>
   </StyledDiv>
@@ -79,6 +94,7 @@ const arquivos = ref(true);
 .list-leave-active {
   transition: all 0.5s ease;
 }
+
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
