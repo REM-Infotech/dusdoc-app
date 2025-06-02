@@ -5,6 +5,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import InputView from "./components/styled/InputView.vue";
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
+import api from "@/resources/axios";
 
 const router = useRouter();
 
@@ -13,10 +14,22 @@ const form = reactive({
   password: "",
 });
 
-function handleSubmit(event: Event) {
+async function handleSubmit(event: Event) {
   event.preventDefault();
 
-  router.push({ name: "home" });
+  try {
+    const response = await api.post("/login", {
+      email: form.email,
+      password: form.password,
+    });
+
+    // Handle successful login
+    console.log("Login successful:", response.data);
+    router.push({ name: "home" });
+  } catch (error) {
+    // Handle login error
+    console.error("Login failed:", error);
+  }
 }
 </script>
 
