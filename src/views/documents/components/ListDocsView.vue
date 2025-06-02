@@ -26,7 +26,7 @@ const computedFiles = computed(() => {
         />
       </div>
     </div>
-    <div class="card mt-2 overflow-x-hidden" :style="{ height: files.length >= 8 ? '500px' : '' }">
+    <div class="card mt-2 overflow-x-hidden" :style="{ height: files.length >= 8 ? '400px' : '' }">
       <TransitionGroup
         class="list-group overflow-y-auto overflow-x-hidden"
         name="list"
