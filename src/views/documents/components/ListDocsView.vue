@@ -1,72 +1,37 @@
 <script setup lang="ts">
-import {
-  faFileInvoice,
-  faDownload,
-  faIdCard,
-  faFileContract,
-} from "@fortawesome/free-solid-svg-icons";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { StyledDiv } from "@/components/styled";
-import { ref } from "vue";
-
-const arquivos = ref(false);
+import { files } from "../resources/ListFiles";
 </script>
 
 <template>
   <StyledDiv class="mt-2" id="files">
     <div class="d-flex gap-0 justify-content-between align-items-center">
       <span class="ms-1 fw-semibold">Documentos recentes</span>
-      <a class="fw-semibold link-offset-3" href="#" @click="arquivos = !arquivos">Ver todos</a>
+      <!-- <a class="fw-semibold link-offset-3" href="#" @click="arquivos = !arquivos">Ver todos</a> -->
     </div>
-    <div class="card mt-2 overflow-x-hidden">
+    <div class="card mt-2 overflow-x-hidden" :style="{ height: files.length >= 8 ? '500px' : '' }">
       <TransitionGroup
         class="list-group overflow-y-auto overflow-x-hidden"
         name="list"
         tag="ul"
         mode="out-in"
-        :style="{ 'min-height: 200px': arquivos }"
       >
-        <li class="list-group-item p-2" v-if="arquivos">
+        <li class="list-group-item p-2" v-for="(file, index) in files" :key="index">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
-              <div class="p-2 bg-primary rounded">
-                <FontAwesomeIcon :icon="faFileInvoice" size="lg" color="white" />
+              <div :class="file.class_icon" style="">
+                <FontAwesomeIcon :icon="file.icon" size="lg" color="white" />
               </div>
               <div class="d-grid gap-0 ms-2">
-                <span class="fw-semibold">Contracheque Maio/2025</span>
-                <span class="text-secondary fw-semibold"> Enviado em 21/05/2024 </span>
-              </div>
-            </div>
-            <a href="#" class="bg-opacity-25 rounded">
-              <FontAwesomeIcon :icon="faDownload" size="2x" color="blue" />
-            </a>
-          </div>
-        </li>
-        <li class="list-group-item p-2" v-if="arquivos">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex justify-content-start align-items-center">
-              <div class="p-1 bg-success rounded">
-                <FontAwesomeIcon :icon="faIdCard" size="lg" color="white" />
-              </div>
-              <div class="d-grid gap-0 ms-2">
-                <span class="fw-semibold">Carteira Identificação</span>
-                <span class="text-secondary fw-semibold"> Atualizado em 21/05/2024 </span>
-              </div>
-            </div>
-            <a href="#" class="bg-opacity-25 rounded">
-              <FontAwesomeIcon :icon="faDownload" size="2x" color="blue" />
-            </a>
-          </div>
-        </li>
-        <li class="list-group-item p-2" v-if="arquivos">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex justify-content-start align-items-center">
-              <div class="p-2 bg-warning rounded" style="">
-                <FontAwesomeIcon :icon="faFileContract" size="lg" color="white" />
-              </div>
-              <div class="d-grid gap-0 ms-2">
-                <span class="fw-semibold">Contrato de Experiência</span>
-                <span class="text-secondary fw-semibold"> Atualizado em 21/05/2024 </span>
+                <span class="fw-semibold">{{ file.file_desc }}</span>
+                <span class="text-secondary fw-semibold" v-if="file.send_date">
+                  Atualizado em {{ file.send_date }}</span
+                >
+                <span class="text-secondary fw-semibold" v-else-if="file.request_date">
+                  Solicitado em {{ file.send_date }}</span
+                >
               </div>
             </div>
             <a href="#" class="bg-opacity-25 rounded">

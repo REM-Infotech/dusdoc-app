@@ -24,7 +24,7 @@ import { faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
         href="#"
       >
         <FontAwesomeIcon :icon="faFolderOpen" size="2x" />
-        Documentos
+        Dados
       </RouterLink>
       <a class="d-flex flex-column gap-2 text-decoration-none link-body-emphasis" href="#">
         <FontAwesomeIcon :icon="faBell" size="2x" />
