@@ -47,77 +47,75 @@ body {
   border-radius: 5px;
 }
 
-[data-bs-theme="dark"] {
-  body {
-    background-color: $blue-chill-950;
-    color: #fff;
-  }
-
-  header,
-  footer {
-    background-color: $blue-chill-800;
-  }
-
-  .login-card {
-    background-color: $dark;
-  }
-
-  .app-navbar {
-    background-color: $scarlet-gum-950;
-  }
+#app {
+  background-color: $blue-chill-950;
+  color: #fff;
 }
-[data-bs-theme="light"] {
-  body {
-    background-color: $blue-chill-600;
-  }
 
-  header,
-  footer {
-    background-color: $blue-chill-300;
-  }
-
-  .app-navbar {
-    background-color: $scarlet-gum-600;
-  }
-
-  .login-card {
-    background-color: white;
-  }
+header,
+footer {
+  background-color: $blue-chill-800;
 }
+
+.login-card {
+  background-color: $dark;
+}
+
+.app-navbar {
+  background-color: $scarlet-gum-950;
+}
+// [data-bs-theme="light"] {
+//   body {
+//     background-color: $blue-chill-600;
+//   }
+
+//   header,
+//   footer {
+//     background-color: $blue-chill-300;
+//   }
+
+//   .app-navbar {
+//     background-color: $scarlet-gum-600;
+//   }
+
+//   .login-card {
+//     background-color: white;
+//   }
+// }
 
 // Buttons
-[data-bs-theme="light"] {
-  .btn-purple {
-    background-color: $purple-heart-800;
-    border-color: $purple-heart-800;
-    border-radius: 5px;
-  }
+// [data-bs-theme="light"] {
+//   .btn-purple {
+//     background-color: $purple-heart-800;
+//     border-color: $purple-heart-800;
+//     border-radius: 5px;
+//   }
 
-  .btn-purple:hover {
-    background-color: $purple-heart-600;
-    border-color: $purple-heart-600;
-    transition:
-      background-color 0.4s ease,
-      color 0.4s ease;
-  }
-  .btn-purple:active {
-    background-color: $purple-heart-600;
-    border-color: $purple-heart-600;
-  }
-}
+//   .btn-purple:hover {
+//     background-color: $purple-heart-600;
+//     border-color: $purple-heart-600;
+//     transition:
+//       background-color 0.4s ease,
+//       color 0.4s ease;
+//   }
+//   .btn-purple:active {
+//     background-color: $purple-heart-600;
+//     border-color: $purple-heart-600;
+//   }
+// }
 
-[data-bs-theme="dark"] {
-  .btn-purple {
-    background-color: $purple-heart-800;
-    border-color: $purple-heart-800;
-  }
+// [data-bs-theme="dark"] {
+//   .btn-purple {
+//     background-color: $purple-heart-800;
+//     border-color: $purple-heart-800;
+//   }
 
-  .btn-purple:hover {
-    background-color: $purple-heart-900;
-    border-color: $purple-heart-900;
-  }
-  .btn-purple:active {
-    background-color: $purple-heart-700;
-    border-color: $purple-heart-700;
-  }
-}
+//   .btn-purple:hover {
+//     background-color: $purple-heart-900;
+//     border-color: $purple-heart-900;
+//   }
+//   .btn-purple:active {
+//     background-color: $purple-heart-700;
+//     border-color: $purple-heart-700;
+//   }
+// }
