@@ -6,6 +6,7 @@ import InputView from "./components/styled/InputView.vue";
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import api from "@/resources/axios";
+import type { LoginResponse } from "./types";
 
 const router = useRouter();
 
@@ -18,13 +19,16 @@ async function handleSubmit(event: Event) {
   event.preventDefault();
 
   try {
-    const response = await api.post("/auth/login", {
+    const response: LoginResponse = await api.post("/auth/login", {
       email: form.email,
       password: form.password,
     });
 
     // Handle successful login
-    console.log("Login successful:", response.data);
+    console.log("Login successful:");
+
+    sessionStorage.setItem("token", response.data?.token as string);
+
     router.push({ name: "home" });
   } catch (error) {
     // Handle login error

@@ -4,7 +4,7 @@ const socket = io(import.meta.env.VITE_SOCKET_URL, {
   transports: ["websocket"],
   autoConnect: false,
   extraHeaders: {
-    Authentication: `Bearer ${localStorage.getItem("token") || ""}`,
+    Authentication: `Bearer ${sessionStorage.getItem("token") || ""}`,
     "Content-Type": "application/json",
   },
 });
