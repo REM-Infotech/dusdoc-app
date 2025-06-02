@@ -16,7 +16,7 @@ const computedFiles = computed(() => {
 <template>
   <StyledDiv class="mt-2" id="solicitacoes">
     <div class="d-flex gap-0 justify-content-between align-items-center">
-      <span class="ms-1 fw-semibold">Meus documentos</span>
+      <span class="ms-1 fw-semibold">Solicitações</span>
     </div>
     <div
       class="card mt-2 overflow-x-hidden"
