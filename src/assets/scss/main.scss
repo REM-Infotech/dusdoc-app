@@ -1,5 +1,31 @@
 @import "./default.scss";
 
+:root {
+  --color-bahia-50: #f9fce9;
+  --color-bahia-100: #f1f8cf;
+  --color-bahia-200: #e2f1a5;
+  --color-bahia-300: #cbe670;
+  --color-bahia-400: #acd330;
+  --color-bahia-500: #96bd25;
+  --color-bahia-600: #74961a;
+  --color-bahia-700: #597318;
+  --color-bahia-800: #475b19;
+  --color-bahia-900: #3d4e19;
+  --color-crusta-900: #1f2b08;
+
+  --color-crusta-50: #fff5ed;
+  --color-crusta-100: #ffe8d4;
+  --color-crusta-200: #ffcca9;
+  --color-crusta-300: #ffa872;
+  --color-crusta-400: #fe7939;
+  --color-crusta-500: #fd5512;
+  --color-crusta-600: #ed3a09;
+  --color-crusta-700: #c52809;
+  --color-crusta-800: #9c2110;
+  --color-crusta-900: #7e1e10;
+  --color-crusta-950: #440b06;
+}
+
 .navbar-indigo {
   --#{$prefix}navbar-color: #{$white};
   --#{$prefix}navbar-hover-color: #{$white};
@@ -48,13 +74,13 @@ body {
 }
 
 #app {
-  background-color: $scarlet-gum-800;
+  background-color: $blue-chill-950;
   color: #fff;
 }
 
 header,
 footer {
-  background-color: $scarlet-gum-950;
+  background-color: $blue-chill-800;
 }
 
 .login-card {
@@ -62,7 +88,7 @@ footer {
 }
 
 .app-navbar {
-  background-color: $scarlet-gum-950;
+  background-color: $blue-chill-600;
 }
 // [data-bs-theme="light"] {
 //   body {

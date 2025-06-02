@@ -4,15 +4,9 @@ import CardEmployee from "./components/CardEmployee.vue";
 import CardSolicitacao from "./components/CardSolicitacao.vue";
 import ListDocsView from "./components/ListDocsView.vue";
 import SolicitacoesView from "./components/SolicitacoesView.vue";
-import socket from "@/resources/socketio";
+import io from "@/stores/socketio";
 
 const avisos = ref(false);
-
-const io = socket;
-io.connect();
-io.on("connect", () => {
-  console.log("Socket connected:", io.id);
-});
 
 io.emit("get_status_system", { id: 12345 }, (data: unknown) => {
   console.log("Status recebido do servidor:", data);

@@ -27,7 +27,7 @@ async function handleSubmit(event: Event) {
     // Handle successful login
     console.log("Login successful:");
 
-    sessionStorage.setItem("token", response.data?.token as string);
+    localStorage.setItem("token", response.data?.token as string);
 
     router.push({ name: "home" });
   } catch (error) {
