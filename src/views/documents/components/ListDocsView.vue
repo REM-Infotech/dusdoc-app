@@ -24,7 +24,7 @@ const arquivos = ref(false);
         name="list"
         tag="ul"
         mode="out-in"
-        :style="{ 'height: 200px': arquivos }"
+        :style="{ 'min-height: 200px': arquivos }"
       >
         <li class="list-group-item p-2" v-if="arquivos">
           <div class="d-flex justify-content-between align-items-center">
