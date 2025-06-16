@@ -8,8 +8,13 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BFormFile: typeof import('bootstrap-vue-next/components/BFormFile')['BFormFile']
+    BFormSelect: typeof import('bootstrap-vue-next/components/BFormSelect')['BFormSelect']
+    BFormSelectOption: typeof import('bootstrap-vue-next/components/BFormSelect')['BFormSelectOption']
     BTab: typeof import('bootstrap-vue-next/components/BTabs')['BTab']
     BTabs: typeof import('bootstrap-vue-next/components/BTabs')['BTabs']
+    DropZone: typeof import('./src/components/DropZone.vue')['default']
+    DropZoneView: typeof import('./src/components/dropzone/DropZoneView.vue')['default']
     FooterView: typeof import('./src/components/FooterView.vue')['default']
     HeaderView: typeof import('./src/components/HeaderView.vue')['default']
     IconExample: typeof import('./src/components/icons/IconExample.vue')['default']
