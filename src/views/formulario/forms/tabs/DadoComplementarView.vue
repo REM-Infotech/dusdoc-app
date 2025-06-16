@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import { piniaState } from "@/main";
 import admissionalStore from "@/stores/admissional";
+import { storeToRefs } from "pinia";
 import formSelect from "../resources/formSelect";
 
 const { genOpt, corRacaOpt, grauEscolarOpt, estadoCivilOpt } = formSelect();
 
-const { genSelected, corRacaSelected, grauEscolarSelected, estadoCivilSelected } =
-  admissionalStore();
+const { genSelected, corRacaSelected, grauEscolarSelected, estadoCivilSelected } = storeToRefs(
+  admissionalStore(piniaState),
+);
 </script>
 
 <template>
@@ -29,14 +32,12 @@ const { genSelected, corRacaSelected, grauEscolarSelected, estadoCivilSelected }
       </BFormSelect>
     </div>
     <div class="form-floating mb-3">
-      <input
-        type="text"
-        class="form-control"
-        id="nome"
-        placeholder="Digite o nome completo"
-        required
-      />
-      <label for="nome" class="form-label"> Cor E Raça </label>
+      <input type="text" class="form-control" id="nome-pai" placeholder="Nome Pai" required />
+      <label for="nome-pai" class="form-label"> Nome do Pai </label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="nome-mae" placeholder="Nome Mãe" required />
+      <label for="nome-mae" class="form-label"> Nome da Mãe </label>
     </div>
   </BTab>
 </template>
