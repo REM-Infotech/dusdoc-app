@@ -67,15 +67,31 @@ const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));
       />
       <label for="cep" class0="form-label">CEP</label>
     </div>
-    <div class="form-floating mb-3">
-      <input
-        type="text"
-        class="form-control"
-        id="endereco"
-        placeholder="Digite o endereço"
-        v-model="AdmissionalForm.endereco"
-      />
-      <label for="endereco" class="form-label">Endereço</label>
+    <div class="row">
+      <div class="col-8">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="endereco"
+            placeholder="Digite o endereço"
+            v-model="AdmissionalForm.endereco"
+          />
+          <label for="endereco" class="form-label">Endereço</label>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="numero_residencia"
+            placeholder="Digite o endereço"
+            v-model="AdmissionalForm.numero_residencia"
+          />
+          <label for="numero_residencia" class="form-label"> Número </label>
+        </div>
+      </div>
     </div>
     <div class="form-floating mb-3">
       <input
