@@ -1,13 +1,27 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { reactive } from "vue";
 
 const admissionalStore = defineStore("formAdmissional", () => {
-  const genSelected = ref(null);
-  const corRacaSelected = ref(null);
-  const grauEscolarSelected = ref(null);
-  const estadoCivilSelected = ref(null);
+  const AdmissionalForm = reactive({
+    nome: "",
+    cpf: "",
+    email: "",
+    data_nascimento: "",
+    telefone: "",
+    endereco: "",
+    complemento: "",
+    cidade: "",
+    cep: "",
+    estado: "",
+    genero: null,
+    corRaca: null,
+    grauEscolaridade: null,
+    estadoCivil: null,
+  });
 
-  return { genSelected, corRacaSelected, grauEscolarSelected, estadoCivilSelected };
+  return {
+    AdmissionalForm,
+  };
 });
 
 export default admissionalStore;

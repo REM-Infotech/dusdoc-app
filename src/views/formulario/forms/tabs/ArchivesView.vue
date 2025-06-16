@@ -3,7 +3,7 @@ import { piniaState } from "@/main";
 import admissionalStore from "@/stores/admissional";
 import { storeToRefs } from "pinia";
 
-const { genSelected, estadoCivilSelected } = storeToRefs(admissionalStore(piniaState));
+const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));
 </script>
 <template>
   <BTab title="Arquivos">
@@ -39,7 +39,7 @@ const { genSelected, estadoCivilSelected } = storeToRefs(admissionalStore(piniaS
         <BFormFile />
       </div>
     </div>
-    <div class="card mb-3" v-if="genSelected == 'Masculino'">
+    <div class="card mb-3" v-if="AdmissionalForm.genero == 'Masculino'">
       <div class="card-header">
         <span> Certidão Reservista </span>
       </div>
@@ -47,7 +47,7 @@ const { genSelected, estadoCivilSelected } = storeToRefs(admissionalStore(piniaS
         <BFormFile />
       </div>
     </div>
-    <div class="card mb-3" v-if="estadoCivilSelected == 'Casado'">
+    <div class="card mb-3" v-if="AdmissionalForm.estadoCivil == 'Casado'">
       <div class="card-header">
         <span> Certidão de Casamento </span>
       </div>
@@ -55,7 +55,7 @@ const { genSelected, estadoCivilSelected } = storeToRefs(admissionalStore(piniaS
         <BFormFile />
       </div>
     </div>
-    <div class="card mb-3" v-if="estadoCivilSelected == 'Divorciado'">
+    <div class="card mb-3" v-if="AdmissionalForm.estadoCivil == 'Divorciado'">
       <div class="card-header">
         <span> Certidão de Divórcio </span>
       </div>
