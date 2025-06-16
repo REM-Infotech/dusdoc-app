@@ -8,6 +8,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BTab: typeof import('bootstrap-vue-next/components/BTabs')['BTab']
+    BTabs: typeof import('bootstrap-vue-next/components/BTabs')['BTabs']
     FooterView: typeof import('./src/components/FooterView.vue')['default']
     HeaderView: typeof import('./src/components/HeaderView.vue')['default']
     IconExample: typeof import('./src/components/icons/IconExample.vue')['default']
