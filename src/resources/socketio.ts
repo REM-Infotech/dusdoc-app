@@ -1,13 +1,12 @@
-import io from "socket.io-client";
+import { Manager } from "socket.io-client";
 
-const socket = io(import.meta.env.VITE_SOCKET_URL, {
+const manager = new Manager(import.meta.env.VITE_SOCKETIO_URL, {
   transports: ["websocket"],
   extraHeaders: {
     "HTTP-AUTHORIZATION": `Bearer ${localStorage.getItem("token") || ""}`,
     "Content-Type": "application/json",
   },
+  autoConnect: false,
 });
 
-socket.connect();
-
-export default socket;
+export default manager;

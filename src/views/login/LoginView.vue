@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import IconExample from "./components/icons/IconExample.vue";
 import "@/assets/scss/main.scss";
+import api from "@/resources/axios";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import InputView from "./components/styled/InputView.vue";
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
-import api from "@/resources/axios";
+import IconExample from "./components/icons/IconExample.vue";
+import InputView from "./components/styled/InputView.vue";
 import type { LoginResponse } from "./types";
 
 const router = useRouter();
@@ -33,6 +33,10 @@ async function handleSubmit(event: Event) {
   } catch (error) {
     // Handle login error
     console.error("Login failed:", error);
+
+    if (import.meta.env.VITE_IS_DEV) {
+      router.push({ name: "home" });
+    }
   }
 }
 </script>

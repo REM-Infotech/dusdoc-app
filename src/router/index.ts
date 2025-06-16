@@ -26,6 +26,11 @@ const router = createRouter({
       component: () => import("@/views/documents/DocumentsView.vue"),
     },
     {
+      path: "/form/:typeform",
+      name: "form",
+      component: () => import("@/views/formulario/FormularioView.vue"),
+    },
+    {
       path: "/logout",
       name: "logout",
       redirect: {

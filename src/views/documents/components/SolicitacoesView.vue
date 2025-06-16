@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { StyledDiv } from "@/components/styled";
-import { solicitacoes } from "../resources/ListSolicitacoes";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { computed, ref } from "vue";
+import { solicitacoes } from "../resources/ListSolicitacoes";
 
 const query = ref("");
 
@@ -49,9 +49,12 @@ const computedFiles = computed(() => {
                 >
               </div>
             </div>
-            <a href="#" class="btn btn-primary btn-sm bg-opacity-25 rounded">
-              Acessar formulário
-            </a>
+            <RouterLink
+              :to="{ name: 'form', params: { typeform: 'admissional' } }"
+              class="btn btn-primary btn-sm bg-opacity-25 rounded"
+            >
+              Ver Formulário
+            </RouterLink>
           </div>
         </li>
       </TransitionGroup>
