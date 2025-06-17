@@ -108,6 +108,9 @@ const admissionalStore = defineStore("formAdmissional", () => {
         (AdmissionalFormFiles as Record<string, unknown>)[name] = new UploadableFile(file);
       }
     });
+
+    console.log(AdmissionalFormFiles);
+    io.emit("admissional_files", { files: AdmissionalFormFiles });
   });
 
   return {
