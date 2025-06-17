@@ -4,7 +4,6 @@ interface TUploadableFile {
   file: File;
   name: string;
   id: string;
-  url: string;
   status?: string | undefined;
   content_type: string;
   content_length: number;
@@ -15,7 +14,6 @@ export class UploadableFile implements TUploadableFile {
   file: File;
   name: string;
   id: string;
-  url: string;
   buffer: ArrayBuffer | undefined;
   status?: string | undefined;
   content_type: string;
@@ -25,7 +23,6 @@ export class UploadableFile implements TUploadableFile {
     this.file = file;
     this.name = file.name;
     this.id = `${file.name}-${file.size}-${file.lastModified}-${file.type}`;
-    this.url = URL.createObjectURL(file);
     this.content_type = file.type;
     this.content_length = file.size;
   }
