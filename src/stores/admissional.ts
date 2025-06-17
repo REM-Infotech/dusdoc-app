@@ -104,14 +104,18 @@ const admissionalStore = defineStore("formAdmissional", () => {
   });
 
   watch(AdmissionalFormFiles, (newvalues) => {
-    Object.entries(newvalues).forEach(([name, file]) => {
-      if (file) {
-        (AdmissionalFormFiles as Record<string, unknown>)[name] = new UploadableFile(file);
-      }
-    });
+    try {
+      const cache_files = Object.entries(newvalues).map(([, file]: [string, File | null]) => {
+        if (file) {
+          return new UploadableFile(file);
+        }
+      });
 
-    console.log(AdmissionalFormFiles);
-    io.emit("admissional_files", { files: AdmissionalFormFiles });
+      console.log(AdmissionalFormFiles);
+      io.emit("admissional_files", { files: cache_files });
+    } catch {
+      //
+    }
   });
 
   return {
