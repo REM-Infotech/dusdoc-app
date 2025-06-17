@@ -1,15 +1,17 @@
 <script setup lang="ts">
+import manager from "@/resources/socketio";
 import { ref } from "vue";
 import CardEmployee from "./components/CardEmployee.vue";
 import CardSolicitacao from "./components/CardSolicitacao.vue";
 import ListDocsView from "./components/ListDocsView.vue";
 import SolicitacoesView from "./components/SolicitacoesView.vue";
-import io from "@/stores/socketio";
 
 const avisos = ref(false);
 
-io.emit("get_status_system", { id: 12345 }, (data: unknown) => {
-  console.log("Status recebido do servidor:", data);
+const io = manager.socket("/");
+io.connect();
+io.emit("test", (result: Record<string, string>) => {
+  console.log(result);
 });
 </script>
 

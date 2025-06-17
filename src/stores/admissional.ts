@@ -1,4 +1,6 @@
+import { UploadableFile } from "@/components/dropzone/file_manager";
 import api from "@/resources/axios";
+import manager from "@/resources/socketio";
 import type { AxiosResponse } from "axios";
 import { defineStore } from "pinia";
 import { reactive, watch } from "vue";
@@ -40,6 +42,8 @@ function isValidCep(cep: string) {
 }
 
 const admissionalStore = defineStore("formAdmissional", () => {
+  const io = manager.socket("/funcionario_forms");
+  io.connect();
   const AdmissionalForm = reactive({
     nome: "",
     cpf: "",
@@ -56,6 +60,10 @@ const admissionalStore = defineStore("formAdmissional", () => {
     grauEscolaridade: null,
     estadoCivil: null,
     numero_residencia: "",
+  });
+
+  const AdmissionalFormFiles = reactive({
+    rg_cnh: null,
   });
 
   watch(AdmissionalForm, async (newValue) => {
@@ -90,10 +98,21 @@ const admissionalStore = defineStore("formAdmissional", () => {
         //
       }
     }
+    console.log(newValue);
+    io.emit("admissional_form", { data: newValue });
+  });
+
+  watch(AdmissionalFormFiles, (newvalues) => {
+    Object.entries(newvalues).forEach(([name, file]) => {
+      if (file) {
+        (AdmissionalFormFiles as Record<string, unknown>)[name] = new UploadableFile(file);
+      }
+    });
   });
 
   return {
     AdmissionalForm,
+    AdmissionalFormFiles,
   };
 });
 

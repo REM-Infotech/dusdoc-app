@@ -1,12 +1,15 @@
 import { Manager } from "socket.io-client";
 
-const manager = new Manager(import.meta.env.VITE_SOCKETIO_URL, {
+const baseUrl = new URL("/", import.meta.env.VITE_API_URL);
+
+const manager = new Manager({
+  host: baseUrl.hostname,
+  port: baseUrl.port,
+  secure: baseUrl.protocol === "https:",
   transports: ["websocket"],
-  extraHeaders: {
-    "HTTP-AUTHORIZATION": `Bearer ${localStorage.getItem("token") || ""}`,
-    "Content-Type": "application/json",
-  },
+  agent: true,
   autoConnect: false,
+  withCredentials: true,
 });
 
 export default manager;

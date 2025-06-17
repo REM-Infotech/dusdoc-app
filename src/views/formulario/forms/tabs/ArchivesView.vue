@@ -3,7 +3,7 @@ import { piniaState } from "@/main";
 import admissionalStore from "@/stores/admissional";
 import { storeToRefs } from "pinia";
 
-const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));
+const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(piniaState));
 </script>
 <template>
   <BTab title="Arquivos">
@@ -20,7 +20,7 @@ const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));
         <span> CTPS (Carteira de Trabalho) </span>
       </div>
       <div class="card-body">
-        <BFormFile />
+        <BFormFile v-model="AdmissionalFormFiles.rg_cnh" />
       </div>
     </div>
     <div class="card mb-3">

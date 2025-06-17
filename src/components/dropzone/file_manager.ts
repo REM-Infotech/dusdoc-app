@@ -5,17 +5,23 @@ interface TUploadableFile {
   id: string;
   url: string;
   status?: string;
+  buffer?: ArrayBuffer;
 }
 
-class UploadableFile implements TUploadableFile {
+export class UploadableFile implements TUploadableFile {
   file: File;
   id: string;
   url: string;
+  buffer: ArrayBuffer | undefined;
 
   constructor(file: File) {
     this.file = file;
     this.id = `${file.name}-${file.size}-${file.lastModified}-${file.type}`;
     this.url = URL.createObjectURL(file);
+  }
+
+  async read_file() {
+    this.buffer = await this.file.arrayBuffer();
   }
 }
 

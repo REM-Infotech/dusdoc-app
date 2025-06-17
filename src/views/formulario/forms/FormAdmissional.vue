@@ -10,7 +10,7 @@ import InfoPessoalView from "./tabs/InfoPessoalView.vue";
       <h2>Formulário de Admissão</h2>
     </div>
     <div class="card-body">
-      <form>
+      <form enctype="multipart/form-data">
         <BTabs content-class="mt-3 mb-3">
           <InfoPessoalView />
           <DadoComplementarView />
