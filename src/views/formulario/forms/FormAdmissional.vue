@@ -2,14 +2,18 @@
 import { piniaState } from "@/main";
 import api from "@/resources/axios";
 import admissionalStore from "@/stores/admissional";
+import { BOverlay, useModal } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import ArchivesView from "./tabs/ArchivesView.vue";
 import DadoComplementarView from "./tabs/DadoComplementarView.vue";
 import InfoPessoalView from "./tabs/InfoPessoalView.vue";
 const router = useRouter();
 const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(piniaState));
+const { show } = useModal("ModalLoading");
+
+const formbusy = ref(false);
 
 const checkForm = computed(() => {
   const allFilled = Object.values(AdmissionalFormFiles.value).every(
@@ -36,19 +40,24 @@ async function handleSubmit(e: Event) {
   let pushRoute = false;
 
   try {
-    await api.post(
-      "/forms/admissional",
-      {
-        data: AdmissionalForm,
-        files: AdmissionalFormFiles,
-      },
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
+    setTimeout(() => {
+      show();
+    }, 200);
+    setTimeout(async () => {
+      const resp = await api.post(
+        "/forms/admissional",
+        {
+          data: AdmissionalForm,
+          files: AdmissionalFormFiles,
         },
-      },
-    );
-    alert("formulário enviado!");
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        },
+      );
+      console.log(resp);
+    }, 5000);
     pushRoute = true;
   } catch (err) {
     console.log(err);
@@ -59,6 +68,16 @@ async function handleSubmit(e: Event) {
     router.push({ name: "documents" });
   }
 }
+
+const onFormOverlayShown = () => {
+  // In this case, we return focus to the submit button
+  // You may need to alter this based on your application requirements
+};
+
+const onFormOverlayHidden = () => {
+  // In this case, we return focus to the submit button
+  // You may need to alter this based on your application requirements
+};
 </script>
 
 <template>
@@ -67,16 +86,25 @@ async function handleSubmit(e: Event) {
       <h2>Formulário de Admissão</h2>
     </div>
     <div class="card-body">
-      <form enctype="multipart/form-data" @submit="handleSubmit">
-        <BTabs content-class="mt-3 mb-3">
-          <InfoPessoalView />
-          <DadoComplementarView />
-          <ArchivesView />
-        </BTabs>
-        <div class="d-flex flex-column">
-          <button type="submit" class="btn btn-primary" :disabled="checkForm">Enviar</button>
-        </div>
-      </form>
+      <BOverlay :show="formbusy" no-wrap @shown="onFormOverlayShown" @hidden="onFormOverlayHidden">
+        <form enctype="multipart/form-data" @submit="handleSubmit">
+          <BTabs content-class="mt-3 mb-3">
+            <InfoPessoalView />
+            <DadoComplementarView />
+            <ArchivesView />
+          </BTabs>
+          <div class="d-flex flex-column">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              :disabled="checkForm"
+              @click="formbusy = !formbusy"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
+      </BOverlay>
     </div>
   </div>
 </template>
