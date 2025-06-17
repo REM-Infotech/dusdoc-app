@@ -1,16 +1,37 @@
 <script setup lang="ts">
 import { StyledDiv } from "@/components/styled";
+import manager from "@/resources/socketio";
+import { faFileInvoice } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { computed, ref } from "vue";
-import { solicitacoes } from "../resources/ListSolicitacoes";
+import { computed, onBeforeMount, ref } from "vue";
+
+const solicitacoes = ref<Record<string, string>[]>([]);
+const io = manager.socket("/funcionario_informacoes");
+io.connect();
+
+onBeforeMount(() => {
+  io.emit("solicitados", (data: Record<string, string>[]) => {
+    solicitacoes.value = data;
+  });
+});
 
 const query = ref("");
 
 const computedFiles = computed(() => {
-  return solicitacoes.filter((file) =>
-    file.solicitacao_desc.toLowerCase().includes(query.value.toLowerCase()),
+  return solicitacoes.value.filter((solicitacao) =>
+    solicitacao.solicitacao_desc.toLowerCase().includes(query.value.toLowerCase()),
   );
 });
+
+const classIcons: Record<string, string> = {
+  png: "p-1 bg-primary rounded",
+  word: "p-1 bg-primary rounded",
+  pdf: "p-1 bg-danger rounded",
+};
+
+function classIcon(extension_file: string) {
+  return classIcons[extension_file] || "p-1 bg-secondary rounded";
+}
 </script>
 
 <template>
@@ -36,15 +57,12 @@ const computedFiles = computed(() => {
         >
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex justify-content-start align-items-center">
-              <div :class="file.class_icon">
-                <FontAwesomeIcon :icon="file.icon" size="xl" color="white" />
+              <div :class="classIcon(file.extension_file)">
+                <FontAwesomeIcon :icon="faFileInvoice" size="xl" color="white" />
               </div>
               <div class="d-grid gap-0 ms-2">
                 <span class="fw-semibold">{{ file.solicitacao_desc }}</span>
-                <span class="text-secondary fw-semibold" v-if="file.send_date">
-                  Atualizado em {{ file.send_date }}</span
-                >
-                <span class="text-secondary fw-semibold" v-else-if="file.request_date">
+                <span class="text-secondary fw-semibold">
                   Solicitado em {{ file.request_date }}</span
                 >
               </div>
