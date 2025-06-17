@@ -64,6 +64,7 @@ const admissionalStore = defineStore("formAdmissional", () => {
 
   const AdmissionalFormFiles = reactive({
     rg_cnh: null,
+    ctps: null,
   });
 
   watch(AdmissionalForm, async (newValue) => {

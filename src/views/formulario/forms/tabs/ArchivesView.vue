@@ -12,7 +12,7 @@ const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(p
         <span> RG ou CNH </span>
       </div>
       <div class="card-body">
-        <BFormFile />
+        <BFormFile v-model="AdmissionalFormFiles.rg_cnh" />
       </div>
     </div>
     <div class="card mb-3">
@@ -20,7 +20,7 @@ const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(p
         <span> CTPS (Carteira de Trabalho) </span>
       </div>
       <div class="card-body">
-        <BFormFile v-model="AdmissionalFormFiles.rg_cnh" />
+        <BFormFile v-model="AdmissionalFormFiles.ctps" />
       </div>
     </div>
     <div class="card mb-3">
