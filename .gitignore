@@ -127,7 +127,7 @@ app/src/main/res/xml/config.xml
 *.njsproj
 *.sln
 *.sw?
-
+.env.production
 *.tsbuildinfo
 
 # Byte-compiled / optimized / DLL files

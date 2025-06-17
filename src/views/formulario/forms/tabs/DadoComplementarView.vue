@@ -39,11 +39,11 @@ const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));
       </BFormSelect>
     </div>
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="nome-pai" placeholder="Nome Pai" required />
+      <input type="text" class="form-control" id="nome-pai" placeholder="Nome Pai" />
       <label for="nome-pai" class="form-label"> Nome do Pai </label>
     </div>
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="nome-mae" placeholder="Nome Mãe" required />
+      <input type="text" class="form-control" id="nome-mae" placeholder="Nome Mãe" />
       <label for="nome-mae" class="form-label"> Nome da Mãe </label>
     </div>
   </BTab>
