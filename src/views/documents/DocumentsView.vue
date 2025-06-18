@@ -3,7 +3,7 @@ import { piniaState } from "@/main";
 import manager from "@/resources/socketio";
 import storeDocuments from "@/stores/documentsStore";
 import { storeToRefs } from "pinia";
-import { onBeforeMount } from "vue";
+import { onBeforeMount, onUnmounted } from "vue";
 import ListDocsView from "./components/ListDocsView.vue";
 import SolicitacoesView from "./components/SolicitacoesView.vue";
 
@@ -24,6 +24,11 @@ function documentos_solicitacoes() {
 
 onBeforeMount(() => {
   documentos_solicitacoes();
+});
+
+onUnmounted(() => {
+  solicitacoes.value = [];
+  files.value = [];
 });
 
 io.on("update_data", () => {
