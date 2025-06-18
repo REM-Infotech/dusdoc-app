@@ -10,8 +10,8 @@ const avisos = ref(false);
 
 const io = manager.socket("/");
 io.connect();
-io.emit("test", (result: Record<string, string>) => {
-  console.log(result);
+io.emit("test", () => {
+  //
 });
 </script>
 

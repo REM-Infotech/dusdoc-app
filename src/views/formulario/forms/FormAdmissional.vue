@@ -18,7 +18,6 @@ const formbusy = ref(false);
 const checkForm = computed(() => {
   const allFilled = Object.values(AdmissionalFormFiles.value).every(
     (item: string | null | undefined) => {
-      console.log(item);
       return item !== null && item !== undefined && item !== "";
     },
   );
@@ -44,6 +43,7 @@ async function handleSubmit(e: Event) {
       show();
     }, 200);
     setTimeout(async () => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const resp = await api.post(
         "/forms/admissional",
         {
@@ -56,12 +56,10 @@ async function handleSubmit(e: Event) {
           },
         },
       );
-      console.log(resp);
     }, 5000);
     pushRoute = true;
-  } catch (err) {
-    console.log(err);
-    alert(import.meta.env.VITE_API_URL);
+  } catch {
+    //
   }
 
   if (pushRoute) {

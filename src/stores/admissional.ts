@@ -99,7 +99,6 @@ const admissionalStore = defineStore("formAdmissional", () => {
         //
       }
     }
-    console.log(newValue);
     io.emit("admissional_form", { data: newValue });
   });
 
@@ -110,8 +109,6 @@ const admissionalStore = defineStore("formAdmissional", () => {
           return new UploadableFile(file);
         }
       });
-
-      console.log(AdmissionalFormFiles);
       io.emit("admissional_files", { files: cache_files });
     } catch {
       //

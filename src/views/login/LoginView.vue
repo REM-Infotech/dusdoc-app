@@ -35,7 +35,6 @@ async function handleSubmit(event: Event) {
     router.push({ name: "home" });
   } catch (err) {
     // Handle login error
-    console.log(err);
     if (isAxiosError(err)) {
       let msg = "Erro ao realizar login";
       if (err.response?.data) {
@@ -51,8 +50,8 @@ async function handleSubmit(event: Event) {
   }
 }
 
-watch(form.value, (newValues) => {
-  console.log(newValues);
+watch(form.value, () => {
+  //
 });
 </script>
 
