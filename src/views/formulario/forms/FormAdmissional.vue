@@ -2,7 +2,7 @@
 import { piniaState } from "@/main";
 import api from "@/resources/axios";
 import admissionalStore from "@/stores/admissional";
-import { BOverlay, useModal } from "bootstrap-vue-next";
+import { BOverlay, BTabs, useModal } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";

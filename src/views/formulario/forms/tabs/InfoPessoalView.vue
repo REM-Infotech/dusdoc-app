@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { piniaState } from "@/main";
 import admissionalStore from "@/stores/admissional";
+import { BTab } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
-
 const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));
 </script>
 

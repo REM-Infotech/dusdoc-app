@@ -25,7 +25,7 @@ async function handleSubmit(event: Event) {
   event.preventDefault();
 
   try {
-    const response: LoginResponse = await api.post("/auth/login", form.value);
+    const response: LoginResponse = await api.post("/auth_funcionario/login", form.value);
 
     // Handle successful login
     alert(response.data?.message);
@@ -35,9 +35,14 @@ async function handleSubmit(event: Event) {
     router.push({ name: "home" });
   } catch (err) {
     // Handle login error
+    console.log(err);
     if (isAxiosError(err)) {
-      const data = err.response?.data;
-      alert(data.message);
+      let msg = "Erro ao realizar login";
+      if (err.response?.data) {
+        msg = err.response?.data.message;
+      }
+
+      alert(msg);
     }
     showOverlayEx1.value = false;
     if (import.meta.env.VITE_IS_DEV) {
