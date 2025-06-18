@@ -2,7 +2,11 @@
 import "@/assets/scss/main.scss";
 import api from "@/resources/axios";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { reactive } from "vue";
+
+import { piniaState } from "@/main";
+import authenticationStore from "@/stores/authentication";
+import { storeToRefs } from "pinia";
+import { watch } from "vue";
 import { useRouter } from "vue-router";
 import IconExample from "./components/icons/IconExample.vue";
 import InputView from "./components/styled/InputView.vue";
@@ -10,22 +14,16 @@ import type { LoginResponse } from "./types";
 
 const router = useRouter();
 
-const form = reactive({
-  email: "",
-  password: "",
-});
+const { form } = storeToRefs(authenticationStore(piniaState));
 
 async function handleSubmit(event: Event) {
   event.preventDefault();
 
   try {
-    const response: LoginResponse = await api.post("/auth/login", {
-      email: form.email,
-      password: form.password,
-    });
+    const response: LoginResponse = await api.post("/auth/login", form.value);
 
     // Handle successful login
-    console.log("Login successful:");
+    alert("Login successful!");
 
     localStorage.setItem("token", response.data?.token as string);
 
@@ -39,6 +37,10 @@ async function handleSubmit(event: Event) {
     }
   }
 }
+
+watch(form.value, (newValues) => {
+  console.log(newValues);
+});
 </script>
 
 <template>
@@ -52,8 +54,8 @@ async function handleSubmit(event: Event) {
     </div>
     <form @submit="handleSubmit" class="d-flex flex-column gap-4">
       <div class="d-flex gap-2 flex-column">
-        <InputView type="text" label="Email" :value="form.email" :icon="faEnvelope" />
-        <InputView type="password" label="Senha" :value="form.password" />
+        <InputView type="text" label="Email" v-model="form.email" :icon="faEnvelope" />
+        <InputView type="password" label="Senha" v-model="form.password" />
       </div>
       <a class="text-decoration-none text-primary fw-semibold" href="#">Esqueceu sua senha?</a>
       <div class="d-grid">

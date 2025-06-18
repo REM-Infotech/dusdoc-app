@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faAt, faEye } from "@fortawesome/free-solid-svg-icons";
-import { computed, ref } from "vue";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { computed, ref, watch } from "vue";
 
 const props = defineProps({
   type: {
@@ -12,7 +12,7 @@ const props = defineProps({
     type: String,
     default: "Type Here...",
   },
-  value: {
+  modelValue: {
     type: String,
     default: "",
   },
@@ -20,7 +20,6 @@ const props = defineProps({
     type: String,
     default: "Enter your value",
   },
-
   icon: {
     type: Object,
     default: faAt,
@@ -33,7 +32,20 @@ const computedType = computed(() => {
   return props.type === "password" && !showPassword.value ? "password" : "text";
 });
 
-const emit = defineEmits(["value", "type"]);
+const emit = defineEmits(["update:modelValue"]);
+
+const localRef = ref(props.modelValue);
+
+watch(
+  () => props.modelValue,
+  (newValue) => {
+    localRef.value = newValue;
+  },
+);
+
+watch(localRef, (newValue) => {
+  emit("update:modelValue", newValue);
+});
 </script>
 <template>
   <div class="input-group">
@@ -46,8 +58,8 @@ const emit = defineEmits(["value", "type"]);
         class="form-control"
         id="floatingInput"
         :placeholder="props.placeholder"
-        :value="props.value"
-        @input="emit('value', ($event.target as HTMLInputElement)?.value || props.value)"
+        :value="props.modelValue"
+        @input="emit('update:modelValue', ($event.target as HTMLInputElement)?.value)"
       />
       <label for="floatingInput">{{ props.label }}</label>
     </div>
