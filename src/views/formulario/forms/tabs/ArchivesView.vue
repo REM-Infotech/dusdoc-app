@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { piniaState } from "@/main";
 import admissionalStore from "@/stores/admissional";
-import { BTab } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
 const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(piniaState));
 </script>
 <template>
-  <BTab title="Arquivos">
+  <div
+    class="tab-pane fade mt-2"
+    id="contact-tab-pane"
+    role="tabpanel"
+    aria-labelledby="contact-tab"
+    tabindex="0"
+  >
     <div class="card mb-3">
       <div class="card-header">
         <span> RG ou CNH </span>
@@ -63,5 +68,5 @@ const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(p
         <BFormFile />
       </div>
     </div>
-  </BTab>
+  </div>
 </template>

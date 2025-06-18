@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { piniaState } from "@/main";
 import admissionalStore from "@/stores/admissional";
-import { BTab } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
 const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));
 </script>
 
 <template>
-  <BTab title="Dados Pessoais" active>
+  <div
+    class="tab-pane fade mt-2 show active"
+    id="home-tab-pane"
+    role="tabpanel"
+    aria-labelledby="home-tab"
+    tabindex="0"
+  >
     <div class="form-floating mb-3">
       <input
         type="text"
@@ -123,5 +128,5 @@ const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));
       />
       <label for="estado" class="form-label">Estado</label>
     </div>
-  </BTab>
+  </div>
 </template>

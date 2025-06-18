@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { piniaState } from "@/main";
 import admissionalStore from "@/stores/admissional";
-import { BTab } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
 import formSelect from "../resources/formSelect";
 const { genOpt, corRacaOpt, grauEscolarOpt, estadoCivilOpt } = formSelect();
@@ -10,7 +9,13 @@ const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));
 </script>
 
 <template>
-  <BTab title="Outras Info.">
+  <div
+    class="tab-pane fade mt-2"
+    id="profile-tab-pane"
+    role="tabpanel"
+    aria-labelledby="profile-tab"
+    tabindex="0"
+  >
     <div class="mb-3 card p-1">
       <label class="form-label p-1" for="genero"> Gênero </label>
       <BFormSelect id="genero" v-model="AdmissionalForm.genero" :options="genOpt"> </BFormSelect>
@@ -46,5 +51,5 @@ const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));
       <input type="text" class="form-control" id="nome-mae" placeholder="Nome Mãe" />
       <label for="nome-mae" class="form-label"> Nome da Mãe </label>
     </div>
-  </BTab>
+  </div>
 </template>

@@ -2,7 +2,7 @@
 import { piniaState } from "@/main";
 import api from "@/resources/axios";
 import admissionalStore from "@/stores/admissional";
-import { BOverlay, BTabs, useModal } from "bootstrap-vue-next";
+import { useModal } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -68,16 +68,6 @@ async function handleSubmit(e: Event) {
     router.push({ name: "documents" });
   }
 }
-
-const onFormOverlayShown = () => {
-  // In this case, we return focus to the submit button
-  // You may need to alter this based on your application requirements
-};
-
-const onFormOverlayHidden = () => {
-  // In this case, we return focus to the submit button
-  // You may need to alter this based on your application requirements
-};
 </script>
 
 <template>
@@ -86,25 +76,83 @@ const onFormOverlayHidden = () => {
       <h2>Formulário de Admissão</h2>
     </div>
     <div class="card-body">
-      <BOverlay :show="formbusy" no-wrap @shown="onFormOverlayShown" @hidden="onFormOverlayHidden">
-        <form enctype="multipart/form-data" @submit="handleSubmit">
-          <BTabs content-class="mt-3 mb-3">
-            <InfoPessoalView />
-            <DadoComplementarView />
-            <ArchivesView />
-          </BTabs>
-          <div class="d-flex flex-column">
+      <form enctype="multipart/form-data" @submit="handleSubmit">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
             <button
-              type="submit"
-              class="btn btn-primary"
-              :disabled="checkForm"
-              @click="formbusy = !formbusy"
+              class="nav-link active"
+              id="home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#home-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="home-tab-pane"
+              aria-selected="true"
             >
-              Enviar
+              Home
             </button>
-          </div>
-        </form>
-      </BOverlay>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="profile-tab-pane"
+              aria-selected="false"
+            >
+              Profile
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#contact-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="contact-tab-pane"
+              aria-selected="false"
+            >
+              Contact
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="disabled-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#disabled-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="disabled-tab-pane"
+              aria-selected="false"
+              disabled
+            >
+              Disabled
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <InfoPessoalView />
+          <DadoComplementarView />
+          <ArchivesView />
+        </div>
+
+        <div class="d-flex flex-column">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            :disabled="checkForm"
+            @click="formbusy = !formbusy"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </template>
