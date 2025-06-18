@@ -1,6 +1,34 @@
 <script setup lang="ts">
+import { piniaState } from "@/main";
+import manager from "@/resources/socketio";
+import storeDocuments from "@/stores/documentsStore";
+import { storeToRefs } from "pinia";
+import { onBeforeMount } from "vue";
 import ListDocsView from "./components/ListDocsView.vue";
 import SolicitacoesView from "./components/SolicitacoesView.vue";
+
+const { solicitacoes, files } = storeToRefs(storeDocuments(piniaState));
+
+const io = manager.socket("/funcionario_informacoes");
+io.connect();
+
+function documentos_solicitacoes() {
+  io.emit("solicitados", (data: Record<string, string>[]) => {
+    solicitacoes.value = data;
+  });
+
+  io.emit("meus_docs", (data: Record<string, string>[]) => {
+    files.value = data;
+  });
+}
+
+onBeforeMount(() => {
+  documentos_solicitacoes();
+});
+
+io.on("update_data", () => {
+  documentos_solicitacoes();
+});
 </script>
 
 <template>

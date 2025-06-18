@@ -1,19 +1,13 @@
 <script setup lang="ts">
 import { StyledDiv } from "@/components/styled";
-import manager from "@/resources/socketio";
+import { piniaState } from "@/main";
+import storeDocuments from "@/stores/documentsStore";
 import { faFileInvoice } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { computed, onBeforeMount, ref } from "vue";
+import { storeToRefs } from "pinia";
+import { computed, ref } from "vue";
 
-const solicitacoes = ref<Record<string, string>[]>([]);
-const io = manager.socket("/funcionario_informacoes");
-io.connect();
-
-onBeforeMount(() => {
-  io.emit("solicitados", (data: Record<string, string>[]) => {
-    solicitacoes.value = data;
-  });
-});
+const { solicitacoes } = storeToRefs(storeDocuments(piniaState));
 
 const query = ref("");
 

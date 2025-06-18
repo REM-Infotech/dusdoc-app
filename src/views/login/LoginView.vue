@@ -5,33 +5,41 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 import { piniaState } from "@/main";
 import authenticationStore from "@/stores/authentication";
+import { isAxiosError } from "axios";
 import { storeToRefs } from "pinia";
-import { watch } from "vue";
+import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import IconExample from "./components/icons/IconExample.vue";
 import InputView from "./components/styled/InputView.vue";
 import type { LoginResponse } from "./types";
 
 const router = useRouter();
+const showOverlayEx1 = ref(false);
+const opacity = ref(0.28);
 
 const { form } = storeToRefs(authenticationStore(piniaState));
 
 async function handleSubmit(event: Event) {
+  showOverlayEx1.value = true;
+
   event.preventDefault();
 
   try {
     const response: LoginResponse = await api.post("/auth/login", form.value);
 
     // Handle successful login
-    alert("Login successful!");
+    alert(response.data?.message);
 
     localStorage.setItem("token", response.data?.token as string);
 
     router.push({ name: "home" });
-  } catch (error) {
+  } catch (err) {
     // Handle login error
-    console.error("Login failed:", error);
-
+    if (isAxiosError(err)) {
+      const data = err.response?.data;
+      alert(data.message);
+    }
+    showOverlayEx1.value = false;
     if (import.meta.env.VITE_IS_DEV) {
       router.push({ name: "home" });
     }
@@ -44,14 +52,18 @@ watch(form.value, (newValues) => {
 </script>
 
 <template>
-  <div
+  <BOverlay
     class="login-card d-flex flex-column gap-3 shadow-lg me-3 ms-3 p-3 rounded rounded-4 mb-auto mt-auto"
+    :show="showOverlayEx1"
+    :opacity="opacity"
+    rounded="sm"
   >
     <div class="d-flex gap-4 justify-content-center align-items-center">
       <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
         <IconExample />
       </div>
     </div>
+
     <form @submit="handleSubmit" class="d-flex flex-column gap-4">
       <div class="d-flex gap-2 flex-column">
         <InputView type="text" label="Email" v-model="form.email" :icon="faEnvelope" />
@@ -64,11 +76,12 @@ watch(form.value, (newValues) => {
         </button>
       </div>
     </form>
+
     <div class="d-flex flex-column justify-content-center align-items-center grap-5">
       <span class="text-center text-body-tertiary fw-semibold"> Ainda não possui uma conta? </span>
       <a class="text-center text-decoration-none" href="#">
         <span class="fw-bolder text-primary"> Solicite ao RH </span>
       </a>
     </div>
-  </div>
+  </BOverlay>
 </template>
