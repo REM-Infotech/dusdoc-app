@@ -14,13 +14,13 @@ import InputView from "./components/styled/InputView.vue";
 import type { LoginResponse } from "./types";
 
 const router = useRouter();
-const showOverlayEx1 = ref(false);
+const overlayLogin = ref(false);
 const opacity = ref(0.28);
 
 const { form } = storeToRefs(authenticationStore(piniaState));
 
 async function handleSubmit(event: Event) {
-  showOverlayEx1.value = true;
+  overlayLogin.value = true;
 
   event.preventDefault();
 
@@ -43,7 +43,7 @@ async function handleSubmit(event: Event) {
 
       alert(msg);
     }
-    showOverlayEx1.value = false;
+    overlayLogin.value = false;
     if (import.meta.env.VITE_IS_DEV) {
       router.push({ name: "home" });
     }
@@ -58,7 +58,7 @@ watch(form.value, () => {
 <template>
   <BOverlay
     class="login-card d-flex flex-column gap-3 shadow-lg me-3 ms-3 p-3 rounded rounded-4 mb-auto mt-auto"
-    :show="showOverlayEx1"
+    :show="overlayLogin"
     :opacity="opacity"
     rounded="sm"
   >
