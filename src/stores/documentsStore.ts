@@ -1,8 +1,15 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
+interface Solicitacao {
+  solicitacao_desc: string;
+  data_solicitacao: string;
+  prazo: string;
+  extension_file: string;
+}
+
 const storeDocuments = defineStore("storeDocuments", () => {
-  const solicitacoes = ref<Record<string, string>[]>([]);
+  const solicitacoes = ref<Solicitacao[]>([]);
   const files = ref<Record<string, string>[]>([]);
   return { solicitacoes, files };
 });

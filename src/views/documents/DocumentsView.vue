@@ -7,17 +7,25 @@ import { onBeforeMount, onUnmounted } from "vue";
 import ListDocsView from "./components/ListDocsView.vue";
 import SolicitacoesView from "./components/SolicitacoesView.vue";
 
+interface Solicitacao {
+  solicitacao_desc: string;
+  data_solicitacao: string;
+  prazo: string;
+  extension_file: string;
+}
+
 const { solicitacoes, files } = storeToRefs(storeDocuments(piniaState));
 
 const io = manager.socket("/funcionario_informacoes");
 io.connect();
 
 function documentos_solicitacoes() {
-  io.emit("solicitados", (data: Record<string, string>[]) => {
+  io.emit("solicitados", { data: { id: "1" } }, (data: Solicitacao[]) => {
+    console.log(data);
     solicitacoes.value = data;
   });
 
-  io.emit("meus_docs", (data: Record<string, string>[]) => {
+  io.emit("my_docs", { data: { id: "1" } }, (data: Record<string, string>[]) => {
     files.value = data;
   });
 }
