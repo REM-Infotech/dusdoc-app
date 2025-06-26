@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 interface Solicitacao {
+  id: string;
   solicitacao_desc: string;
   data_solicitacao: string;
   prazo: string;

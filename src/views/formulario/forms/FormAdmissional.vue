@@ -57,7 +57,7 @@ async function handleSubmit(e: Event) {
     });
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const resp = await api.post("/forms/admissional", Form, {
+    const resp = await api.post(`/forms/admissional/${AdmissionalForm.value.id}`, Form, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

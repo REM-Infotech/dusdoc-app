@@ -45,6 +45,7 @@ const admissionalStore = defineStore("formAdmissional", () => {
   const io = manager.socket("/funcionario_forms");
   io.connect();
   const AdmissionalForm = reactive({
+    id: "",
     nome: "",
     cpf: "",
     email: "",

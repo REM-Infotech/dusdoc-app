@@ -8,6 +8,7 @@ import ListDocsView from "./components/ListDocsView.vue";
 import SolicitacoesView from "./components/SolicitacoesView.vue";
 
 interface Solicitacao {
+  id: string;
   solicitacao_desc: string;
   data_solicitacao: string;
   prazo: string;

@@ -72,7 +72,7 @@ function classIcon(extension_file: string) {
             </div>
             <RouterLink
               v-if="checkPrazo(file)"
-              :to="{ name: 'form', params: { typeform: 'admissional' } }"
+              :to="{ name: 'form', params: { typeform: 'admissional', id: file.id } }"
               class="btn btn-primary btn-sm bg-opacity-25 rounded"
             >
               Ver Formulário
