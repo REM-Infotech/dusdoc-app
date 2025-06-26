@@ -43,19 +43,26 @@ async function handleSubmit(e: Event) {
       show();
     }, 200);
     setTimeout(async () => {
+      const Form = new FormData();
+      // Append form fields
+      Object.entries(AdmissionalForm.value).forEach(([key, value]) => {
+        if (value !== null && value !== undefined) {
+          Form.append(key, value as string | Blob);
+        }
+      });
+      // Append files
+      Object.entries(AdmissionalFormFiles.value).forEach(([key, file]) => {
+        if (file) {
+          Form.append(key, file as Blob);
+        }
+      });
+
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const resp = await api.post(
-        "/forms/admissional",
-        {
-          data: AdmissionalForm,
-          files: AdmissionalFormFiles,
+      const resp = await api.post("/forms/admissional", Form, {
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        },
-      );
+      });
     }, 5000);
     pushRoute = true;
   } catch {
