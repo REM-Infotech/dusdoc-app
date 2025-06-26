@@ -17,7 +17,10 @@ const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(p
         <span> RG ou CNH </span>
       </div>
       <div class="card-body">
-        <BFormFile v-model="AdmissionalFormFiles.rg_cnh" />
+        <BFormFile
+          v-model="AdmissionalFormFiles.rg_cnh"
+          :accept="['.pdf', '.png', '.jpg', '.jpeg']"
+        />
       </div>
     </div>
     <div class="card mb-3">
@@ -25,7 +28,10 @@ const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(p
         <span> CTPS (Carteira de Trabalho) </span>
       </div>
       <div class="card-body">
-        <BFormFile v-model="AdmissionalFormFiles.ctps" />
+        <BFormFile
+          v-model="AdmissionalFormFiles.ctps"
+          :accept="['.pdf', '.png', '.jpg', '.jpeg']"
+        />
       </div>
     </div>
     <div class="card mb-3">
@@ -33,7 +39,7 @@ const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(p
         <span> Comprovante de Residência </span>
       </div>
       <div class="card-body">
-        <BFormFile />
+        <BFormFile :accept="['.pdf', '.png', '.jpg', '.jpeg']" />
       </div>
     </div>
     <div class="card mb-3">
@@ -41,7 +47,7 @@ const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(p
         <span> Titulo Eleitor </span>
       </div>
       <div class="card-body">
-        <BFormFile />
+        <BFormFile :accept="['.pdf', '.png', '.jpg', '.jpeg']" />
       </div>
     </div>
     <div class="card mb-3" v-if="AdmissionalForm.genero == 'Masculino'">
@@ -49,7 +55,7 @@ const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(p
         <span> Certidão Reservista </span>
       </div>
       <div class="card-body">
-        <BFormFile />
+        <BFormFile :accept="['.pdf', '.png', '.jpg', '.jpeg']" />
       </div>
     </div>
     <div class="card mb-3" v-if="AdmissionalForm.estadoCivil == 'Casado'">
@@ -57,7 +63,7 @@ const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(p
         <span> Certidão de Casamento </span>
       </div>
       <div class="card-body">
-        <BFormFile />
+        <BFormFile :accept="['.pdf', '.png', '.jpg', '.jpeg']" />
       </div>
     </div>
     <div class="card mb-3" v-if="AdmissionalForm.estadoCivil == 'Divorciado'">
@@ -65,7 +71,7 @@ const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(p
         <span> Certidão de Divórcio </span>
       </div>
       <div class="card-body">
-        <BFormFile />
+        <BFormFile :accept="['.pdf', '.png', '.jpg', '.jpeg']" />
       </div>
     </div>
   </div>
