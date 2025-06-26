@@ -35,38 +35,36 @@ const checkForm = computed(() => {
 
 async function handleSubmit(e: Event) {
   e.preventDefault();
-
+  formbusy.value = true;
   let pushRoute = false;
 
   try {
     setTimeout(() => {
       show();
     }, 200);
-    setTimeout(async () => {
-      const Form = new FormData();
-      // Append form fields
-      Object.entries(AdmissionalForm.value).forEach(([key, value]) => {
-        if (value !== null && value !== undefined) {
-          Form.append(key, value as string | Blob);
-        }
-      });
-      // Append files
-      Object.entries(AdmissionalFormFiles.value).forEach(([key, file]) => {
-        if (file) {
-          Form.append(key, file as Blob);
-        }
-      });
+    const Form = new FormData();
+    // Append form fields
+    Object.entries(AdmissionalForm.value).forEach(([key, value]) => {
+      if (value !== null && value !== undefined) {
+        Form.append(key, value as string | Blob);
+      }
+    });
+    // Append files
+    Object.entries(AdmissionalFormFiles.value).forEach(([key, file]) => {
+      if (file) {
+        Form.append(key, file as Blob);
+      }
+    });
 
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const resp = await api.post("/forms/admissional", Form, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-    }, 5000);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const resp = await api.post("/forms/admissional", Form, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     pushRoute = true;
-  } catch {
-    //
+  } catch (err) {
+    console.log(err);
   }
 
   if (pushRoute) {
@@ -76,73 +74,75 @@ async function handleSubmit(e: Event) {
 </script>
 
 <template>
-  <div class="mt-5 card">
-    <div class="card-header">
-      <h2>Formulário de Admissão</h2>
-    </div>
-    <div class="card-body">
-      <form enctype="multipart/form-data" @submit="handleSubmit">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="home-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#home-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="home-tab-pane"
-              aria-selected="true"
-            >
-              Informações Básicas
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="profile-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#profile-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="profile-tab-pane"
-              aria-selected="false"
-            >
-              Info. adicional
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="contact-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#contact-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="contact-tab-pane"
-              aria-selected="false"
-            >
-              Arquivos
-            </button>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <InfoPessoalView />
-          <DadoComplementarView />
-          <ArchivesView />
-        </div>
+  <BOverlay :show="formbusy" :opacity="0.5">
+    <div class="mt-5 card">
+      <div class="card-header">
+        <h2>Formulário de Admissão</h2>
+      </div>
+      <div class="card-body">
+        <form enctype="multipart/form-data" @submit="handleSubmit">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#home-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="home-tab-pane"
+                aria-selected="true"
+              >
+                Informações Básicas
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#profile-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="profile-tab-pane"
+                aria-selected="false"
+              >
+                Info. adicional
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="contact-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#contact-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="contact-tab-pane"
+                aria-selected="false"
+              >
+                Arquivos
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <InfoPessoalView />
+            <DadoComplementarView />
+            <ArchivesView />
+          </div>
 
-        <div class="d-flex flex-column">
-          <button
-            type="submit"
-            class="btn btn-primary"
-            :disabled="checkForm"
-            @click="formbusy = !formbusy"
-          >
-            Enviar
-          </button>
-        </div>
-      </form>
+          <div class="d-flex flex-column">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              :disabled="checkForm"
+              @click="formbusy = !formbusy"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
+  </BOverlay>
 </template>
