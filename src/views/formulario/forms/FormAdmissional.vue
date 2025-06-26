@@ -5,11 +5,12 @@ import admissionalStore from "@/stores/admissional";
 import { useModal } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import ArchivesView from "./tabs/ArchivesView.vue";
 import DadoComplementarView from "./tabs/DadoComplementarView.vue";
 import InfoPessoalView from "./tabs/InfoPessoalView.vue";
 const router = useRouter();
+const route = useRoute();
 const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(piniaState));
 const { show } = useModal("ModalLoading");
 
@@ -57,7 +58,7 @@ async function handleSubmit(e: Event) {
     });
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const resp = await api.post(`/forms/admissional/${AdmissionalForm.value.id}`, Form, {
+    const resp = await api.post(`/forms/admissional/${route.params.id}`, Form, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -65,6 +66,7 @@ async function handleSubmit(e: Event) {
     pushRoute = true;
   } catch (err) {
     console.log(err);
+    formbusy.value = false;
   }
 
   if (pushRoute) {
