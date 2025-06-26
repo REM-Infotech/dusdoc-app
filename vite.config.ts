@@ -11,6 +11,7 @@ import vueDevTools from "vite-plugin-vue-devtools";
 // https://vite.dev/config/
 export default defineConfig({
   server: {
+    port: 5174,
     allowedHosts: ["dusdoc.robotz.dev", "5173--main--vuedusdoc--robotz213.try.robotz.dev"],
     cors: {
       origin: "https://dusdoc.robotz.dev",
