@@ -6,7 +6,7 @@ const api = axios.create({
   xsrfCookieName: "X-Xsrf-Token",
   xsrfHeaderName: "X-Xsrf-Token",
   headers: {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
   },
 });
 
