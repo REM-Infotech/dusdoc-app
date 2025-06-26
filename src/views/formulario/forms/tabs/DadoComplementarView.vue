@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { piniaState } from "@/main";
 import admissionalStore from "@/stores/admissional";
+import { BFormSelect } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
 import formSelect from "../resources/formSelect";
+
 const { genOpt, corRacaOpt, grauEscolarOpt, estadoCivilOpt } = formSelect();
 
 const { AdmissionalForm } = storeToRefs(admissionalStore(piniaState));

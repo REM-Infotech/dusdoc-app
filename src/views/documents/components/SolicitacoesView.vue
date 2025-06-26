@@ -6,6 +6,7 @@ import { faFileInvoice } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { storeToRefs } from "pinia";
 import { computed, ref } from "vue";
+import type { Solicitacao } from "../types";
 
 const { solicitacoes } = storeToRefs(storeDocuments(piniaState));
 
@@ -16,6 +17,13 @@ const computedFiles = computed(() => {
     solicitacao.solicitacao_desc.toLowerCase().includes(query.value.toLowerCase()),
   );
 });
+
+function checkPrazo(file: Solicitacao) {
+  const data_prazo = new Date(file.prazo);
+  const today = new Date();
+
+  return today < data_prazo ? false : true;
+}
 
 const classIcons: Record<string, string> = {
   png: "p-1 bg-primary rounded",
@@ -57,11 +65,13 @@ function classIcon(extension_file: string) {
               <div class="d-grid gap-0 ms-2">
                 <span class="fw-semibold">{{ file.solicitacao_desc }}</span>
                 <span class="text-secondary fw-semibold">
-                  Solicitado em {{ file.request_date }}</span
-                >
+                  Solicitado em {{ file.data_solicitacao }}
+                </span>
+                <span class="text-secondary fw-semibold"> Prazo {{ file.prazo }} </span>
               </div>
             </div>
             <RouterLink
+              v-if="checkPrazo(file)"
               :to="{ name: 'form', params: { typeform: 'admissional' } }"
               class="btn btn-primary btn-sm bg-opacity-25 rounded"
             >
