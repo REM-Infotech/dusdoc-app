@@ -2,7 +2,12 @@ import axios from "axios";
 
 const api = axios.create({
   withCredentials: true,
-  baseURL: import.meta.env.VITE_API_URL,
+  withXSRFToken: true,
+  xsrfCookieName: "X-Xsrf-Token",
+  xsrfHeaderName: "X-Xsrf-Token",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 export default api;

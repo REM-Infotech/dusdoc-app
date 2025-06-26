@@ -1,9 +1,9 @@
+import "@/defaults/axios";
+import { createBootstrap } from "bootstrap-vue-next";
 import { createPinia } from "pinia";
 import { createApp } from "vue";
 import "./assets/scss/main.css";
 import "./assets/scss/main.scss";
-
-import { createBootstrap } from "bootstrap-vue-next";
 
 // Add the necessary CSS
 import "bootstrap-vue-next/dist/bootstrap-vue-next.css";

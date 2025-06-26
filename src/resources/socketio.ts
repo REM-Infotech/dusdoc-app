@@ -10,6 +10,9 @@ const manager = new Manager({
   agent: true,
   autoConnect: false,
   withCredentials: true,
+  extraHeaders: {
+    "Content-Type": "application/json",
+  },
 });
 
 export default manager;
