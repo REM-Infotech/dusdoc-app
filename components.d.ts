@@ -9,7 +9,6 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BFormFile: typeof import('bootstrap-vue-next/components/BFormFile')['BFormFile']
-    BFormSelect: typeof import('bootstrap-vue-next/components/BFormSelect')['BFormSelect']
     BOverlay: typeof import('bootstrap-vue-next/components/BOverlay')['BOverlay']
     DropZoneView: typeof import('./src/components/dropzone/DropZoneView.vue')['default']
     FooterView: typeof import('./src/components/FooterView.vue')['default']
