@@ -3,6 +3,8 @@ import { piniaState } from "@/main";
 import admissionalStore from "@/stores/admissional";
 import { storeToRefs } from "pinia";
 const { AdmissionalForm, AdmissionalFormFiles } = storeToRefs(admissionalStore(piniaState));
+
+import { BFormFile } from "bootstrap-vue-next";
 </script>
 <template>
   <div

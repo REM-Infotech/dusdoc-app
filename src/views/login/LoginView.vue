@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import "@/assets/scss/main.scss";
-import api from "@/resources/axios";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
 import { piniaState } from "@/main";
+import api from "@/resources/axios";
 import authenticationStore from "@/stores/authentication";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { isAxiosError } from "axios";
+import { BOverlay } from "bootstrap-vue-next";
 import { storeToRefs } from "pinia";
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";

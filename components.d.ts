@@ -8,8 +8,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    BFormFile: typeof import('bootstrap-vue-next/components/BFormFile')['BFormFile']
-    BOverlay: typeof import('bootstrap-vue-next/components/BOverlay')['BOverlay']
     DropZoneView: typeof import('./src/components/dropzone/DropZoneView.vue')['default']
     FooterView: typeof import('./src/components/FooterView.vue')['default']
     HeaderView: typeof import('./src/components/HeaderView.vue')['default']
